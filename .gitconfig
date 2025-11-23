@@ -1,0 +1,78 @@
+# ═══════════════════════════════════════════════════════════════════
+# 🎨 Amazing Git Configuration
+# ═══════════════════════════════════════════════════════════════════
+
+[alias]
+    # Short status
+    s = status -s
+    
+    # Pretty log
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    
+    # Show all branches
+    branches = branch -a
+    
+    # Show all remotes
+    remotes = remote -v
+    
+    # Amend last commit
+    amend = commit --amend --no-edit
+    
+    # Undo last commit (keep changes)
+    undo = reset HEAD~1 --soft
+    
+    # Show changed files in last commit
+    changed = show --pretty="" --name-only
+    
+    # Interactive rebase
+    rb = rebase -i
+    
+    # List contributors
+    contributors = shortlog --summary --numbered
+    
+    # Show conflicts
+    conflicts = diff --name-only --diff-filter=U
+
+[color]
+    ui = auto
+    branch = auto
+    diff = auto
+    status = auto
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[color "status"]
+    added = green
+    changed = yellow
+    untracked = cyan
+
+[core]
+    editor = nvim
+    pager = less -R
+    autocrlf = input
+    excludesfile = ~/.gitignore_global
+
+[push]
+    default = current
+
+[pull]
+    rebase = false
+
+[init]
+    defaultBranch = main
+
+[diff]
+    tool = nvimdiff
+
+[merge]
+    tool = nvimdiff
+    conflictstyle = diff3

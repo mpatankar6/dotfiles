@@ -1,0 +1,23 @@
+# Temporary files
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Backup files
+*.backup
+*.bak
+
+# Logs
+*.log
+
+# Personal data
+.zsh_history
+
+# Editor directories
+.vscode/
+.idea/
+
+# Compiled files
+*.pyc
+*.class
