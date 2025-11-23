@@ -1,4 +1,9 @@
+export PROMPT='%F{green}%n@%m%f %1~ %# '
+
+setopt autocd
 setopt correct
+setopt hist_ignore_dups
+setopt share_history
 
 autoload -Uz compinit
 compinit
