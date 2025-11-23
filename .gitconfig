@@ -59,7 +59,7 @@
     editor = nvim
     pager = less -R
     autocrlf = input
-    excludesfile = ~/.gitignore_global
+    # excludesfile = ~/.gitignore_global  # Create this file for global ignore patterns
 
 [push]
     default = current

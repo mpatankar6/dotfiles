@@ -17,6 +17,7 @@ theme = dark:Catppuccin Frappe,light:Catppuccin Latte
 # ───────────────────────────────────────────────────────────────────
 # Background Image
 # ───────────────────────────────────────────────────────────────────
+# Place your background images in the images/ directory
 background-image = "images/night.jpg"
 background-image-opacity = 0.15
 background-image-fit = "cover"

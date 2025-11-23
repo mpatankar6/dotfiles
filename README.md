@@ -58,8 +58,8 @@ brew install zsh-autosuggestions zsh-syntax-highlighting
 ### Quick Install
 
 ```bash
-# Clone the repository
-git clone https://github.com/mpatankar6/dotfiles.git ~/.dotfiles-repo
+# Clone the repository (replace <username> with the repository owner)
+git clone https://github.com/<username>/dotfiles.git ~/.dotfiles-repo
 cd ~/.dotfiles-repo
 
 # Backup existing configs (optional but recommended)
