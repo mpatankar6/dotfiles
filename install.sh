@@ -131,10 +131,10 @@ if [ "$ALL_DEPS_INSTALLED" = false ]; then
     echo ""
 fi
 
-# Create necessary directories
-print_header "📁 Creating Directories"
-mkdir -p "$HOME/.zsh_history"
-print_success "Created history directory"
+# Ensure history file can be created
+print_header "📁 Setting Up History"
+touch "$HOME/.zsh_history"
+print_success "History file initialized"
 
 # Installation complete
 print_header "🎉 Installation Complete!"

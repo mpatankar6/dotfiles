@@ -11,7 +11,7 @@ font-thicken = true
 # ───────────────────────────────────────────────────────────────────
 # Theme Configuration
 # ───────────────────────────────────────────────────────────────────
-theme = deep
+# Adaptive theme: dark mode uses Catppuccin Frappe, light mode uses Catppuccin Latte
 theme = dark:Catppuccin Frappe,light:Catppuccin Latte
 
 # ───────────────────────────────────────────────────────────────────
