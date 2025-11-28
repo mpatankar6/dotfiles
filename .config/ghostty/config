@@ -2,8 +2,8 @@ window-padding-x = 10
 window-padding-y = 10
 font-size = 16
 font-thicken = true
-theme = deep 
 theme = dark:Catppuccin Frappe,light:Catppuccin Latte
 background-image = "images/night.jpg"
-background-image-opacity = 0.15
+background-image-opacity = 0.1
 background-image-fit = "cover"
+fullscreen

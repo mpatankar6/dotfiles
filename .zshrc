@@ -12,9 +12,10 @@ prompt pure
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-alias ll='ls -la'
-alias la='ls -A'
-
+alias ll='ls -lAh'
 alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 eval "$(zoxide init --cmd cd zsh)"
+
+export PATH="$(brew --prefix)/opt/python@3.x/libexec/bin:$PATH"
+fastfetch
