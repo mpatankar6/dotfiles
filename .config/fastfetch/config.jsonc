@@ -1,5 +1,6 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "logo": "arch",
   "modules": [
     "title",
     "separator",
@@ -10,9 +11,6 @@
     "packages",
     "shell",
     "display",
-    "de",
-    "wm",
-    "icons",
     "terminal",
     "terminalfont",
     "cpu",
@@ -20,7 +18,6 @@
     "memory",
     "disk",
     "battery",
-    "poweradapter",
-    "break"
+    "poweradapter"
   ]
 }
