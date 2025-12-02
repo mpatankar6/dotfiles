@@ -19,6 +19,7 @@ alias vi=nvim
 alias vim=nvim
 
 ff() {
+    cd ~
     clear
     fastfetch
 }
