@@ -62,15 +62,17 @@ vim.lsp.config("lua_ls", {
 -- Autocmds
 vim.api.nvim_create_autocmd("PackChanged", {
   callback = function(ev)
-    if ev.data.spec.name == "nvim-treesitter/nvim-treesitter" and
-        (ev.data.kind == "install" or ev.data.kind == "update") then
-      vim.cmd.packadd("nvim-treesitter")
+    if ev.data.spec.name == "nvim-treesitter" and
+       (ev.data.kind == "install" or ev.data.kind == "update") then
       vim.cmd("TSUpdate")
     end
   end,
 })
 
 -- Keymaps
+vim.keymap.set("n", "<leader>rn", function()
+  vim.o.relativenumber = not vim.o.relativenumber
+end, { desc = "Toggle Relative Line Numbers" })
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save Current Buffer" })
 vim.keymap.set("n", "<leader>W", ":wa<CR>", { desc = "Save All Buffers" })
 vim.keymap.set({ 'n', 'x' }, '<leader>y', '"+y', { desc = 'Copy to System Clipboard' })
