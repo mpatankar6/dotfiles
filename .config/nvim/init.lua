@@ -50,7 +50,6 @@ require('blink.cmp').setup({
 })
 
 -- LSP configuration
-vim.lsp.enable({ "lua_ls", "rust_analyzer", "clangd" })
 vim.lsp.config("lua_ls", {
   settings = {
     Lua = {
@@ -58,12 +57,20 @@ vim.lsp.config("lua_ls", {
     }
   }
 })
+vim.lsp.config("ty", {
+  settings = {
+    ty = {
+      experimental = { rename = true, autoImport = true }
+    }
+  }
+})
+vim.lsp.enable({ "lua_ls", "rust_analyzer", "clangd", "ruff", "ty", "ts_ls", "biome" })
 
 -- Autocmds
 vim.api.nvim_create_autocmd("PackChanged", {
   callback = function(ev)
     if ev.data.spec.name == "nvim-treesitter" and
-       (ev.data.kind == "install" or ev.data.kind == "update") then
+        (ev.data.kind == "install" or ev.data.kind == "update") then
       vim.cmd("TSUpdate")
     end
   end,
