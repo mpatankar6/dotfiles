@@ -2,9 +2,12 @@
 vim.diagnostic.config({ virtual_text = true })
 vim.g.mapleader = " "
 
+vim.o.ignorecase = true
+vim.o.smartcase = true
 vim.o.cursorline = true
 vim.o.number = true
 vim.o.relativenumber = true
+vim.o.showmode = false
 vim.o.shiftwidth = 2
 vim.o.tabstop = 2
 vim.o.expandtab = true
@@ -47,7 +50,7 @@ require('blink.cmp').setup({
 })
 
 -- LSP configuration
-vim.lsp.enable({ "lua_ls" })
+vim.lsp.enable({ "lua_ls", "rust_analyzer", "clangd" })
 vim.lsp.config("lua_ls", {
   settings = {
     Lua = {
