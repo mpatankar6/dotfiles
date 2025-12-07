@@ -22,6 +22,7 @@ vim.pack.add({
   "https://github.com/nvim-lualine/lualine.nvim.git",
   "https://github.com/nvim-treesitter/nvim-treesitter.git",
   "https://github.com/stevearc/oil.nvim.git",
+  "https://github.com/windwp/nvim-ts-autotag.git",
   { src = "https://github.com/saghen/blink.cmp.git", version = vim.version.range("*") },
 })
 
@@ -40,6 +41,7 @@ require('nvim-treesitter.configs').setup({
   additional_vim_regex_highlighting = false
 })
 require('oil').setup()
+require("nvim-ts-autotag").setup()
 require('blink.cmp').setup({
   signature = { enabled = true },
   completion = {
@@ -54,6 +56,13 @@ vim.lsp.config("lua_ls", {
   settings = {
     Lua = {
       workspace = { library = vim.api.nvim_get_runtime_file("", true) }
+    }
+  }
+})
+vim.lsp.config("rust_analyzer", {
+  settings = {
+    ["rust_analyzer"] = {
+      checkOnSave = { command = "clippy" }
     }
   }
 })
@@ -89,6 +98,7 @@ vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format buffer" }
 vim.keymap.set("n", "<leader>O", ":Oil<CR>", { desc = "Open Oil" })
 
 local fzf_lua = require("fzf-lua")
+fzf_lua.register_ui_select()
 vim.keymap.set("n", "<leader>ff", fzf_lua.files, { desc = "Find Files" })
 vim.keymap.set("n", "<leader>fr", fzf_lua.registers, { desc = "Find Registers" })
 vim.keymap.set("n", "<leader>fg", fzf_lua.live_grep, { desc = "Live Grep" })
