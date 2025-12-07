@@ -4,3 +4,4 @@ font-size = 16
 font-thicken = true
 theme = Catppuccin Mocha
 fullscreen
+shell-integration-features = sudo
