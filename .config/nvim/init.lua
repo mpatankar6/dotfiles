@@ -18,6 +18,7 @@ vim.o.winborder = "rounded"
 vim.pack.add({
   "https://github.com/catppuccin/nvim.git",
   "https://github.com/ibhagwan/fzf-lua.git",
+  "https://github.com/j-hui/fidget.nvim.git",
   "https://github.com/neovim/nvim-lspconfig.git",
   "https://github.com/nvim-lualine/lualine.nvim.git",
   "https://github.com/nvim-treesitter/nvim-treesitter.git",
@@ -32,17 +33,18 @@ require("catppuccin").setup({
   auto_integrations = true,
 })
 vim.cmd("colorscheme catppuccin")
-require('fzf-lua').setup()
-require('lualine').setup({})
+require("fzf-lua").setup()
+require("fidget").setup({})
+require("lualine").setup({})
 ---@diagnostic disable-next-line: missing-fields
-require('nvim-treesitter.configs').setup({
+require("nvim-treesitter.configs").setup({
   auto_install = true,
   highlight = { enable = true },
   additional_vim_regex_highlighting = false
 })
-require('oil').setup()
+require("oil").setup()
 require("nvim-ts-autotag").setup()
-require('blink.cmp').setup({
+require("blink.cmp").setup({
   signature = { enabled = true },
   completion = {
     documentation = { auto_show = true, auto_show_delay_ms = 500 },
@@ -61,8 +63,8 @@ vim.lsp.config("lua_ls", {
 })
 vim.lsp.config("rust_analyzer", {
   settings = {
-    ["rust_analyzer"] = {
-      checkOnSave = { command = "clippy" }
+    ["rust-analyzer"] = {
+      check = { command = "clippy" }
     }
   }
 })
@@ -76,6 +78,8 @@ vim.lsp.config("ty", {
 vim.lsp.enable({ "lua_ls", "rust_analyzer", "clangd", "ruff", "ty", "ts_ls", "biome" })
 
 -- Autocmds
+
+-- Auto-update treesitter parsers
 vim.api.nvim_create_autocmd("PackChanged", {
   callback = function(ev)
     if ev.data.spec.name == "nvim-treesitter" and
@@ -83,6 +87,21 @@ vim.api.nvim_create_autocmd("PackChanged", {
       vim.cmd("TSUpdate")
     end
   end,
+})
+
+-- Save on format
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if not client then return end
+    if client:supports_method("textDocument/formatting") then
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        callback = function()
+          vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
+        end
+      })
+    end
+  end
 })
 
 -- Keymaps
@@ -100,9 +119,13 @@ vim.keymap.set("n", "<leader>O", ":Oil<CR>", { desc = "Open Oil" })
 local fzf_lua = require("fzf-lua")
 fzf_lua.register_ui_select()
 vim.keymap.set("n", "<leader>ff", fzf_lua.files, { desc = "Find Files" })
-vim.keymap.set("n", "<leader>fr", fzf_lua.registers, { desc = "Find Registers" })
-vim.keymap.set("n", "<leader>fg", fzf_lua.live_grep, { desc = "Live Grep" })
+vim.keymap.set("n", "<leader>fr", fzf_lua.resume, { desc = "Resume Find" })
+vim.keymap.set("n", "<leader>fR", fzf_lua.registers, { desc = "Find Registers" })
+vim.keymap.set("n", "<leader>fg", fzf_lua.grep_curbuf, { desc = "Grep Current Buffer" })
+vim.keymap.set("n", "<leader>fG", fzf_lua.live_grep, { desc = "Live Grep" })
 vim.keymap.set("n", "<leader>fm", fzf_lua.marks, { desc = "Find Marks" })
 vim.keymap.set("n", "<leader>fb", fzf_lua.buffers, { desc = "Find Buffers" })
 vim.keymap.set("n", "<leader>fh", fzf_lua.helptags, { desc = "Find Help Tags" })
+vim.keymap.set("n", "<leader>fd", fzf_lua.diagnostics_document, { desc = "Find Diagnostics (Document)" })
+vim.keymap.set("n", "<leader>fD", fzf_lua.diagnostics_workspace, { desc = "Find Diagnostics (Workspace)" })
 vim.keymap.set("n", "<leader>s", fzf_lua.spell_suggest, { desc = "Spelling Suggestions" })

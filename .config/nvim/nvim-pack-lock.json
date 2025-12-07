@@ -5,6 +5,10 @@
       "src": "https://github.com/saghen/blink.cmp.git",
       "version": ">=0.0.0"
     },
+    "fidget.nvim": {
+      "rev": "e32b672d8fd343f9d6a76944fedb8c61d7d8111a",
+      "src": "https://github.com/j-hui/fidget.nvim.git"
+    },
     "fzf-lua": {
       "rev": "cae96b04f6cad98a3ad24349731df5e56b384c3c",
       "src": "https://github.com/ibhagwan/fzf-lua.git"
