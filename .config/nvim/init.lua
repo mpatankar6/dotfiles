@@ -86,6 +86,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+-- Move help pages to a vertical split
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'help', 'man' },
+  callback = function()
+    vim.cmd('wincmd L')
+  end
+})
+
 -- Auto-update treesitter parsers
 vim.api.nvim_create_autocmd("PackChanged", {
   callback = function(ev)
