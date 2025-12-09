@@ -79,6 +79,13 @@ vim.lsp.enable({ "lua_ls", "rust_analyzer", "clangd", "ruff", "ty", "ts_ls", "bi
 
 -- Autocmds
 
+-- Highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
+
 -- Auto-update treesitter parsers
 vim.api.nvim_create_autocmd("PackChanged", {
   callback = function(ev)
