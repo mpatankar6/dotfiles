@@ -5,3 +5,6 @@ font-thicken = true
 theme = Catppuccin Mocha
 fullscreen
 shell-integration-features = sudo
+background-image = "img/cat-waves.png"
+background-image-opacity = 0.1
+background-image-fit = "cover"
