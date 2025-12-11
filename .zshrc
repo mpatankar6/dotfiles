@@ -27,3 +27,4 @@ export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --e
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_COMPLETION_DIR_OPTS='--walker dir,follow,hidden'
 export PATH="/opt/homebrew/opt/python@3.14/libexec/bin:$PATH"
+export EDITOR="nvim"
