@@ -29,4 +29,3 @@ bindkey "^G" autosuggest-toggle
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_COMPLETION_DIR_OPTS='--walker dir,follow,hidden'
-export EDITOR="nvim"
