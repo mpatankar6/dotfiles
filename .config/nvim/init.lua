@@ -75,7 +75,7 @@ vim.lsp.config("ty", {
     }
   }
 })
-vim.lsp.enable({ "lua_ls", "rust_analyzer", "clangd", "ruff", "ty", "ts_ls", "biome" })
+vim.lsp.enable({ "lua_ls", "rust_analyzer", "clangd", "ruff", "ty", "denols" })
 
 -- Autocmds
 
