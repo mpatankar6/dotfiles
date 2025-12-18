@@ -28,9 +28,9 @@ vim.pack.add({
 })
 
 require("catppuccin").setup({
-  flavour = "mocha",
   transparent_background = true,
   auto_integrations = true,
+  show_end_of_buffer = true,
 })
 vim.cmd("colorscheme catppuccin")
 require("fzf-lua").setup()
