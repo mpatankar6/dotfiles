@@ -18,7 +18,6 @@ vim.o.winborder = "rounded"
 vim.pack.add({
   "https://github.com/catppuccin/nvim.git",
   "https://github.com/ibhagwan/fzf-lua.git",
-  "https://github.com/j-hui/fidget.nvim.git",
   "https://github.com/neovim/nvim-lspconfig.git",
   "https://github.com/nvim-lualine/lualine.nvim.git",
   "https://github.com/nvim-treesitter/nvim-treesitter.git",
@@ -34,7 +33,6 @@ require("catppuccin").setup({
 })
 vim.cmd("colorscheme catppuccin")
 require("fzf-lua").setup()
-require("fidget").setup({})
 require("lualine").setup({})
 ---@diagnostic disable-next-line: missing-fields
 require("nvim-treesitter.configs").setup({
@@ -86,11 +84,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
--- Move help pages to a vertical split
+-- Move man pages to a new tab
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'help', 'man' },
+  pattern = { 'man' },
   callback = function()
-    vim.cmd('wincmd L')
+    vim.cmd('wincmd T')
   end
 })
 
