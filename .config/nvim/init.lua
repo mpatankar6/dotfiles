@@ -66,13 +66,6 @@ vim.lsp.config("rust_analyzer", {
     }
   }
 })
-vim.lsp.config("ty", {
-  settings = {
-    ty = {
-      experimental = { rename = true, autoImport = true }
-    }
-  }
-})
 vim.lsp.enable({ "lua_ls", "rust_analyzer", "clangd", "ruff", "ty", "denols" })
 
 -- Autocmds
