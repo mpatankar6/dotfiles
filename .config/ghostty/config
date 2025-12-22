@@ -5,6 +5,6 @@ window-width = 100
 font-size = 16
 font-thicken = true
 theme = dark:Catppuccin Mocha,light:Catppuccin Latte
-shell-integration-features = sudo
+shell-integration-features = sudo,ssh-terminfo,ssh-env
 background-blur = 40
 background-opacity = 0.8
