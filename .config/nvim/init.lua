@@ -18,9 +18,9 @@ vim.pack.add({
   "https://github.com/ibhagwan/fzf-lua.git",
   "https://github.com/neovim/nvim-lspconfig.git",
   "https://github.com/nvim-lualine/lualine.nvim.git",
-  "https://github.com/nvim-treesitter/nvim-treesitter.git",
   "https://github.com/stevearc/oil.nvim.git",
-  { src = "https://github.com/saghen/blink.cmp.git", version = vim.version.range("*") },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter.git", version = "master" },
+  { src = "https://github.com/saghen/blink.cmp.git",                version = vim.version.range("*") },
 })
 
 require("catppuccin").setup({
@@ -30,7 +30,8 @@ require("catppuccin").setup({
 vim.cmd.colorscheme("catppuccin")
 require("fzf-lua").setup()
 require("lualine").setup({})
-require("nvim-treesitter").setup({
+---@diagnostic disable-next-line: missing-fields
+require("nvim-treesitter.configs").setup({
   auto_install = true,
   highlight = { enable = true },
 })
