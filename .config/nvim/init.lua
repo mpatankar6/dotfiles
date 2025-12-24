@@ -1,4 +1,3 @@
--- Global settings and options
 vim.diagnostic.config({ virtual_text = true })
 vim.g.mapleader = " "
 
@@ -14,7 +13,6 @@ vim.o.expandtab = true
 vim.o.signcolumn = "yes"
 vim.o.winborder = "rounded"
 
--- Plugins
 vim.pack.add({
   "https://github.com/catppuccin/nvim.git",
   "https://github.com/ibhagwan/fzf-lua.git",
@@ -22,26 +20,21 @@ vim.pack.add({
   "https://github.com/nvim-lualine/lualine.nvim.git",
   "https://github.com/nvim-treesitter/nvim-treesitter.git",
   "https://github.com/stevearc/oil.nvim.git",
-  "https://github.com/windwp/nvim-ts-autotag.git",
   { src = "https://github.com/saghen/blink.cmp.git", version = vim.version.range("*") },
 })
 
 require("catppuccin").setup({
   transparent_background = true,
-  auto_integrations = true,
   show_end_of_buffer = true,
 })
-vim.cmd("colorscheme catppuccin")
+vim.cmd.colorscheme("catppuccin")
 require("fzf-lua").setup()
 require("lualine").setup({})
----@diagnostic disable-next-line: missing-fields
-require("nvim-treesitter.configs").setup({
+require("nvim-treesitter").setup({
   auto_install = true,
   highlight = { enable = true },
-  additional_vim_regex_highlighting = false
 })
 require("oil").setup()
-require("nvim-ts-autotag").setup()
 require("blink.cmp").setup({
   signature = { enabled = true },
   completion = {
@@ -51,7 +44,6 @@ require("blink.cmp").setup({
   keymap = { preset = "enter" }
 })
 
--- LSP configuration
 vim.lsp.config("lua_ls", {
   settings = {
     Lua = {
@@ -68,30 +60,10 @@ vim.lsp.config("rust_analyzer", {
 })
 vim.lsp.enable({ "lua_ls", "rust_analyzer", "clangd", "ruff", "ty", "denols" })
 
--- Autocmds
-
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank()
-  end,
-})
-
--- Move man pages to a new tab
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'man' },
-  callback = function()
-    vim.cmd('wincmd T')
-  end
-})
-
--- Auto-update treesitter parsers
-vim.api.nvim_create_autocmd("PackChanged", {
-  callback = function(ev)
-    if ev.data.spec.name == "nvim-treesitter" and
-        (ev.data.kind == "install" or ev.data.kind == "update") then
-      vim.cmd("TSUpdate")
-    end
   end,
 })
 
@@ -111,14 +83,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- Keymaps
-vim.keymap.set("n", "<leader>rn", function()
-  vim.o.relativenumber = not vim.o.relativenumber
-end, { desc = "Toggle Relative Line Numbers" })
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save Current Buffer" })
 vim.keymap.set("n", "<leader>W", ":wa<CR>", { desc = "Save All Buffers" })
-vim.keymap.set({ 'n', 'x' }, '<leader>y', '"+y', { desc = 'Copy to System Clipboard' })
-vim.keymap.set('n', '<leader>p', '"+p', { desc = 'Paste from System Clipboard' })
-vim.keymap.set('x', '<leader>p', '"+P', { desc = 'Paste from System Clipboard' })
+vim.keymap.set({ "n", "x" }, "<leader>y", '"+y', { desc = "Yank to System Clipboard" })
+vim.keymap.set("n", "<leader>Y", '"+Y', { desc = "Yank Until EOL to System Clipboard" })
+vim.keymap.set("n", "<leader>p", '"+p', { desc = "Paste from System Clipboard" })
+vim.keymap.set("x", "<leader>p", '"+_dP', { desc = "Paste from System Clipboard" })
+vim.keymap.set("n", "<leader>P", '"+P', { desc = "Paste Above from System Clipboard" })
 vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format buffer" })
 vim.keymap.set("n", "<leader>O", ":Oil<CR>", { desc = "Open Oil" })
 
