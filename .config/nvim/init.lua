@@ -23,10 +23,7 @@ vim.pack.add({
   { src = "https://github.com/saghen/blink.cmp.git",                version = vim.version.range("*") },
 })
 
-require("catppuccin").setup({
-  transparent_background = true,
-  show_end_of_buffer = true,
-})
+require("catppuccin").setup({ transparent_background = true })
 vim.cmd.colorscheme("catppuccin")
 require("fzf-lua").setup()
 require("lualine").setup({})
@@ -68,7 +65,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
--- Save on format
+-- Format on save
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -83,7 +80,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end
 })
 
--- Keymaps
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save Current Buffer" })
 vim.keymap.set("n", "<leader>W", ":wa<CR>", { desc = "Save All Buffers" })
 vim.keymap.set({ "n", "x" }, "<leader>y", '"+y', { desc = "Yank to System Clipboard" })
