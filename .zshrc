@@ -19,8 +19,6 @@ alias ff='cd ~ && clear && fastfetch'
 alias ll='ls -lAh'
 alias path='echo $PATH | tr ":" "\n"'
 alias github='open "$(git remote get-url origin)"'
-_google() { open "https://www.google.com/search?q=${*// /+}" }
-alias google='noglob _google'
 
 eval "$(zoxide init --cmd cd zsh)"
 
