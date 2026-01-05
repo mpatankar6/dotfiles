@@ -18,7 +18,7 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias ff='cd ~ && clear && fastfetch'
 alias ll='ls -lAh'
 alias path='echo $PATH | tr ":" "\n"'
-alias github='open "$(git remote get-url origin)"'
+alias github='url=$(git remote get-url origin) && open "$url"'
 
 eval "$(zoxide init --cmd cd zsh)"
 
