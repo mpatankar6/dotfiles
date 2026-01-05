@@ -11,7 +11,6 @@ vim.o.shiftwidth = 2
 vim.o.tabstop = 2
 vim.o.expandtab = true
 vim.o.signcolumn = "yes"
-vim.o.winborder = "rounded"
 
 vim.pack.add({
   "https://github.com/catppuccin/nvim.git",
@@ -58,38 +57,11 @@ vim.lsp.config("rust_analyzer", {
 })
 vim.lsp.enable({ "lua_ls", "rust_analyzer", "clangd", "ruff", "ty", "denols" })
 
--- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
+  callback = function() vim.highlight.on_yank() end
 })
 
--- Format on save
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if not client then return end
-    if client:supports_method("textDocument/formatting") then
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        callback = function()
-          vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
-        end
-      })
-    end
-  end
-})
-
-vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save Current Buffer" })
-vim.keymap.set("n", "<leader>W", ":wa<CR>", { desc = "Save All Buffers" })
-vim.keymap.set({ "n", "x" }, "<leader>y", '"+y', { desc = "Yank to System Clipboard" })
-vim.keymap.set("n", "<leader>Y", '"+Y', { desc = "Yank Until EOL to System Clipboard" })
-vim.keymap.set("n", "<leader>p", '"+p', { desc = "Paste from System Clipboard" })
-vim.keymap.set("x", "<leader>p", '"+_dP', { desc = "Paste from System Clipboard" })
-vim.keymap.set("n", "<leader>P", '"+P', { desc = "Paste Above from System Clipboard" })
-vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format buffer" })
-vim.keymap.set("n", "<leader>O", ":Oil<CR>", { desc = "Open Oil" })
-
+vim.keymap.set("n", "<leader>F", vim.lsp.buf.format, { desc = "Format Buffer" })
 local fzf_lua = require("fzf-lua")
 fzf_lua.register_ui_select()
 vim.keymap.set("n", "<leader>ff", fzf_lua.files, { desc = "Find Files" })
