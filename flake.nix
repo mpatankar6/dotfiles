@@ -6,6 +6,10 @@
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-wsl = {
+      url = "github:nix-community/nixos-wsl";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,6 +22,7 @@
       self,
       nixpkgs,
       nix-darwin,
+      nixos-wsl,
       home-manager,
       neovim-nightly-overlay,
     }:
@@ -50,6 +55,7 @@
         modules = [
           overlayModule
           ./machines/wsl/configuration.nix
+          nixos-wsl.nixosModules.wsl
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
