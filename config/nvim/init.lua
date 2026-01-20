@@ -16,6 +16,7 @@ vim.pack.add({
   "https://github.com/ibhagwan/fzf-lua.git",
   "https://github.com/neovim/nvim-lspconfig.git",
   "https://github.com/nvim-lualine/lualine.nvim.git",
+  "https://github.com/nvim-tree/nvim-web-devicons.git",
   "https://github.com/stevearc/oil.nvim.git",
   { src = "https://github.com/nvim-treesitter/nvim-treesitter.git", version = "master" },
   { src = "https://github.com/saghen/blink.cmp.git",                version = vim.version.range("*") },
@@ -54,7 +55,7 @@ vim.lsp.config("rust_analyzer", {
     }
   }
 })
-vim.lsp.enable({ "lua_ls", "rust_analyzer", "clangd", "ruff", "ty", "denols" })
+vim.lsp.enable({ "lua_ls", "rust_analyzer", "clangd", "ruff", "ty", "nixd" })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function() vim.highlight.on_yank() end
