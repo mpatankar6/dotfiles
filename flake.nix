@@ -45,5 +45,23 @@
           }
         ];
       };
+      nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          overlayModule
+          ./machines/wsl/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
+            home-manager.users.mihir = {
+              home.username = "mihir";
+              home.homeDirectory = "/home/mihir";
+              imports = [ ./home.nix ];
+            };
+          }
+        ];
+      };
     };
 }
