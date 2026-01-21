@@ -2,6 +2,16 @@
 {
   environment.systemPackages = with pkgs; [
   ];
+  homebrew = {
+    enable = true;
+    casks = [
+      "ghostty"
+      "utm"
+      "crossover"
+    ];
+    onActivation.upgrade = true;
+    onActivation.cleanup = "zap";
+  };
   programs.fish.enable = true;
   users.users.mihir = {
     name = "mihir";

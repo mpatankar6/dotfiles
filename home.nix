@@ -3,7 +3,7 @@
 let
   configs-source = "${config.home.homeDirectory}/dotfiles/config";
   configs = {
-    alacritty = "alacritty";
+    ghostty = "ghostty";
     fish = "fish";
     nvim = "nvim";
     starship = "starship";
@@ -25,10 +25,12 @@ in
     neovim
     nixd
     nixfmt
+    nodejs
     ripgrep
     starship
     tmux
     tree
+    tree-sitter
     zoxide
   ];
   home.stateVersion = "25.11";
