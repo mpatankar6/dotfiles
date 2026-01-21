@@ -26,13 +26,16 @@ in
     neovim
     nixd
     nixfmt
-    nodejs
     ripgrep
     starship
     tmux
     tree
-    tree-sitter
     zoxide
   ];
+  programs.direnv = {
+    enable = true;
+    enableFishIntegration = true;
+    nix-direnv.enable = true;
+  };
   home.stateVersion = "25.11";
 }
