@@ -20,6 +20,7 @@ in
     fastfetch
     fd
     fzf
+    gh
     git
     lua-language-server
     neovim
