@@ -24,7 +24,7 @@
   };
   system.primaryUser = "mihir";
   system.defaults = {
-    NSGlobalDomain.InitialKeyRepeat = 15;
+    NSGlobalDomain.InitialKeyRepeat = 17;
     NSGlobalDomain.KeyRepeat = 2;
     dock.autohide = true;
     dock.showAppExposeGestureEnabled = true;
