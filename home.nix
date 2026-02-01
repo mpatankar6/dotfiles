@@ -4,6 +4,7 @@ let
   configs-source = "${config.home.homeDirectory}/dotfiles/config";
   configs = {
     ghostty = "ghostty";
+    fastfetch = "fastfetch";
     fish = "fish";
     nvim = "nvim";
     starship = "starship";
