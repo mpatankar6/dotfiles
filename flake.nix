@@ -19,17 +19,30 @@
 
   outputs =
     {
-      self,
       nixpkgs,
       nix-darwin,
       nixos-wsl,
       home-manager,
       neovim-nightly-overlay,
+      ...
     }:
     let
       overlayModule = {
         nixpkgs.overlays = [ neovim-nightly-overlay.overlays.default ];
       };
+      makeHomeManagerUser =
+        { username, homeDirectory }:
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "backup";
+
+          home-manager.users.${username} = {
+            home.username = username;
+            home.homeDirectory = homeDirectory;
+            imports = [ ./home.nix ];
+          };
+        };
     in
     {
       darwinConfigurations.macbook = nix-darwin.lib.darwinSystem {
@@ -38,16 +51,10 @@
           overlayModule
           ./machines/macbook/configuration.nix
           home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.mihir = {
-              home.username = "mihir";
-              home.homeDirectory = "/Users/mihir";
-              imports = [ ./home.nix ];
-            };
-          }
+          (makeHomeManagerUser {
+            username = "mihir";
+            homeDirectory = "/Users/mihir";
+          })
         ];
       };
       nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {
@@ -57,16 +64,22 @@
           ./machines/wsl/configuration.nix
           nixos-wsl.nixosModules.wsl
           home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.mihir = {
-              home.username = "mihir";
-              home.homeDirectory = "/home/mihir";
-              imports = [ ./home.nix ];
-            };
-          }
+          (makeHomeManagerUser {
+            username = "mihir";
+            homeDirectory = "/home/mihir";
+          })
+        ];
+      };
+      nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          overlayModule
+          ./machines/desktop/configuration.nix
+          home-manager.nixosModules.home-manager
+          (makeHomeManagerUser {
+            username = "mihir";
+            homeDirectory = "/home/mihir";
+          })
         ];
       };
     };
