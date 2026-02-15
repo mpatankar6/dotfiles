@@ -9,4 +9,5 @@ theme = dark:Catppuccin Mocha,light:Catppuccin Latte
 shell-integration-features = sudo,ssh-terminfo,ssh-env
 background-blur = 40
 background-opacity = 0.8
+# This file gets added by Home Manager when necessary.
 config-file = ?linux.config
