@@ -15,6 +15,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    nur.url = "github:nix-community/NUR";
   };
 
   outputs =
@@ -24,14 +25,22 @@
       nixos-wsl,
       home-manager,
       neovim-nightly-overlay,
+      nur,
       ...
     }:
     let
       overlayModule = {
-        nixpkgs.overlays = [ neovim-nightly-overlay.overlays.default ];
+        nixpkgs.overlays = [
+          neovim-nightly-overlay.overlays.default
+          nur.overlays.default
+        ];
       };
       makeHomeManagerUser =
-        { username, homeDirectory }:
+        {
+          username ? "mihir",
+          homeDirectory,
+          modules ? [ ],
+        }:
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
@@ -40,7 +49,7 @@
           home-manager.users.${username} = {
             home.username = username;
             home.homeDirectory = homeDirectory;
-            imports = [ ./home.nix ];
+            imports = [ ./home.nix ] ++ modules;
           };
         };
     in
@@ -77,8 +86,12 @@
           ./machines/desktop/configuration.nix
           home-manager.nixosModules.home-manager
           (makeHomeManagerUser {
-            username = "mihir";
             homeDirectory = "/home/mihir";
+            modules = [
+              ./machines/desktop/modules/cursor.nix
+              ./machines/desktop/modules/firefox.nix
+              ./machines/desktop/modules/ghostty-extra-config.nix
+            ];
           })
         ];
       };
