@@ -1,0 +1,77 @@
+@import "catppuccin-mocha.css";
+
+* {
+  font-family: "JetBrainsMono Nerd Font", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#custom-power,
+#workspaces,
+#window:not(.empty),
+#system,
+#connectivity {
+  background-color: @surface0;
+  border-radius: 15px;
+  margin: 0.5rem 1rem 0 1rem;
+}
+
+/* Horizontal Spacing */
+#window *,
+#system *,
+#connectivity * {
+  margin: 0 1rem;
+}
+
+#custom-power {
+  color: @sky;
+  /* Compensate for slight icon misalignment */
+  padding: 0 1.1rem 0 0.9rem;
+}
+
+#waybar {
+  background: transparent;
+  color: @text;
+}
+
+#workspaces button {
+  color: @lavender;
+  border: none;
+}
+
+#workspaces button.active {
+  color: @rosewater;
+}
+
+#workspaces button:hover {
+  background-color: @surface2;
+  border-radius: 15px;
+  text-shadow: none;
+  transition: none;
+  background-image: none;
+}
+
+#custom-cpu {
+  color: @maroon;
+}
+
+#custom-gpu {
+  color: @yellow;
+}
+
+#memory {
+  color: @green;
+}
+
+#pulseaudio {
+  color: @teal;
+}
+
+#clock {
+  color: @lavender;
+}
+
+#network {
+  /* Compensate for slight icon misalignment */
+  padding: 0 0.4rem 0 0;
+}
