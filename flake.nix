@@ -68,7 +68,7 @@
           (makeHomeManagerUser {
             homeDirectory = "/Users/mihir";
             modules = [
-              
+              ./home-manager/alacritty.nix
             ];
           })
         ];
