@@ -16,6 +16,7 @@
     };
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nur.url = "github:nix-community/NUR";
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs =
@@ -26,6 +27,7 @@
       home-manager,
       neovim-nightly-overlay,
       nur,
+      catppuccin,
       ...
     }:
     let
@@ -38,18 +40,21 @@
       makeHomeManagerUser =
         {
           username ? "mihir",
-          homeDirectory,
+          homeDirectory ? "/home/mihir",
           modules ? [ ],
         }:
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
-
+          home-manager.sharedModules = [
+            ./home.nix
+            catppuccin.homeModules.catppuccin
+          ];
           home-manager.users.${username} = {
             home.username = username;
             home.homeDirectory = homeDirectory;
-            imports = [ ./home.nix ] ++ modules;
+            imports = modules;
           };
         };
     in
@@ -61,8 +66,10 @@
           ./machines/macbook/configuration.nix
           home-manager.darwinModules.home-manager
           (makeHomeManagerUser {
-            username = "mihir";
             homeDirectory = "/Users/mihir";
+            modules = [
+              
+            ];
           })
         ];
       };
@@ -73,10 +80,7 @@
           ./machines/wsl/configuration.nix
           nixos-wsl.nixosModules.wsl
           home-manager.nixosModules.home-manager
-          (makeHomeManagerUser {
-            username = "mihir";
-            homeDirectory = "/home/mihir";
-          })
+          (makeHomeManagerUser { })
         ];
       };
       nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
@@ -86,11 +90,15 @@
           ./machines/desktop/configuration.nix
           home-manager.nixosModules.home-manager
           (makeHomeManagerUser {
-            homeDirectory = "/home/mihir";
             modules = [
-              ./machines/desktop/modules/cursor.nix
-              ./machines/desktop/modules/firefox.nix
-              ./machines/desktop/modules/ghostty-extra-config.nix
+              ./home-manager/desktop/cursor.nix
+              ./home-manager/desktop/firefox.nix
+              ./home-manager/desktop/ghostty-extra-config.nix
+              ./home-manager/desktop/gtk.nix
+              ./home-manager/desktop/hyprland.nix
+              ./home-manager/desktop/hyprpaper.nix
+              ./home-manager/desktop/mako.nix
+              ./home-manager/desktop/waybar/waybar.nix
             ];
           })
         ];

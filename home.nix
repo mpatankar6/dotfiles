@@ -3,9 +3,9 @@
 let
   configs-source = "${config.home.homeDirectory}/dotfiles/config";
   configs = {
-    ghostty = "ghostty";
     fastfetch = "fastfetch";
     fish = "fish";
+    ghostty = "ghostty";
     nvim = "nvim";
     starship = "starship";
     tmux = "tmux";
@@ -25,6 +25,7 @@ in
     git
     lua-language-server
     neovim
+    nerd-fonts.jetbrains-mono
     nixd
     nixfmt
     ripgrep
