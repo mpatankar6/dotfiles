@@ -5,7 +5,6 @@ let
   configs = {
     fastfetch = "fastfetch";
     fish = "fish";
-    ghostty = "ghostty";
     nvim = "nvim";
     starship = "starship";
     tmux = "tmux";
