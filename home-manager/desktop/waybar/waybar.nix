@@ -33,7 +33,7 @@
         };
         "custom/power" = {
           format = "";
-          on-click = "wlogout";
+          on-click = "wleave";
           tooltip = true;
           tooltip-format = "Power Menu";
         };

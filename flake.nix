@@ -91,14 +91,17 @@
           home-manager.nixosModules.home-manager
           (makeHomeManagerUser {
             modules = [
+              ./home-manager/alacritty.nix
               ./home-manager/desktop/cursor.nix
               ./home-manager/desktop/firefox.nix
-              ./home-manager/desktop/ghostty-extra-config.nix
+              ./home-manager/desktop/fuzzel.nix
               ./home-manager/desktop/gtk.nix
               ./home-manager/desktop/hyprland.nix
+              ./home-manager/desktop/hyprlock.nix
               ./home-manager/desktop/hyprpaper.nix
               ./home-manager/desktop/mako.nix
               ./home-manager/desktop/waybar/waybar.nix
+              ./home-manager/desktop/wleave.nix
             ];
           })
         ];

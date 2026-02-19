@@ -1,4 +1,5 @@
 { lib, ... }:
+
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -46,23 +47,26 @@
       };
       "$mod" = "SUPER";
       bind = [
-        "$mod, f, fullscreen, 0"
-        "$mod SHIFT, f, togglefloating"
-        "$mod, q, killactive"
-        "$mod, h, movefocus, l"
-        "$mod, l, movefocus, r"
-        "$mod, k, movefocus, u"
-        "$mod, j, movefocus, d"
-        "$mod, s, togglespecialworkspace, scratch"
-        "$mod SHIFT, s, movetoworkspace, special:scratch"
-        "$mod, tab, workspace, previous"
-        "$mod, space, exec, rofi -show drun"
-        "$mod, return, exec, ghostty"
+        "$mod, F, fullscreen, 0"
+        "$mod SHIFT, F, togglefloating"
+        "$mod, S, togglespecialworkspace, scratch"
+        "$mod SHIFT, S, movetoworkspace, special:scratch"
+        "$mod, Q, killactive"
+        "$mod, H, movefocus, l"
+        "$mod, L, movefocus, r"
+        "$mod, K, movefocus, u"
+        "$mod, J, movefocus, d"
+        "$mod, N, workspace, +1"
+        "$mod, P, workspace, -1"
+        "$mod, TAB, workspace, previous"
+        "$mod, SPACE, exec, rofi -show drun"
+        "$mod, RETURN, exec, alacritty"
+        "$mod, ESCAPE, exec, pgrep wleave || wleave"
       ]
       ++ builtins.concatLists (
         map (ws: [
           "$mod, ${ws}, workspace, ${ws}"
-          "$mod SHIFT, ${ws}, movetoworkspace, ${ws}"
+          "$mod CTRL, ${ws}, movetoworkspace, ${ws}"
         ]) (map toString (lib.range 1 9))
       );
       bindm = [
