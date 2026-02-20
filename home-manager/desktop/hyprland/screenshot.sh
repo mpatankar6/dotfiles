@@ -1,16 +1,29 @@
 #!/usr/bin/env bash
+
+# This is needed for the region case to fail if no screenshot was taken.
+set -o pipefail
+
 case "$1" in
   full)
-    grim - | wl-copy
-    notify-send "Screenshot" "Full screen copied to clipboard"
+    if grim - | wl-copy; then
+      notify-send "Screenshot" "Full screen copied to clipboard"
+    fi
     ;;
   region)
-    grim -g "$(slurp)" - | wl-copy
-    notify-send "Screenshot" "Region copied to clipboard"
+    if grim -g "$(slurp)" - | wl-copy; then
+      notify-send "Screenshot" "Region copied to clipboard"
+    fi
     ;;
   save)
-    OUTPUT=$HOME/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
-    wl-paste --type image/png > "$OUTPUT"
-    notify-send "Screenshot" "Saved to $OUTPUT"
+    FILE=$HOME/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
+    mkdir -p $HOME/Screenshots
+    wl-paste --type image/png 2>/dev/null > "$FILE"
+    if [[ -s "$FILE" ]]; then
+      notify-send "Screenshot" "Saved to $FILE"
+    else
+      # If wl-paste failed or the clipboard did not contain a PNG, an empty
+      # file was probably written.
+      rm -f "$FILE"
+    fi
     ;;
 esac
