@@ -2,7 +2,7 @@
   programs.hyprlock = {
     enable = true;
     settings = {
-      "$font" = "JetBrainsMono Nerd Font";
+      "$font" = "JetBrainsMono Nerd Font Propo";
       background = {
         path = "screenshot";
         blur_passes = 3;
@@ -10,7 +10,7 @@
       };
       label = [
         {
-          text = "cmd[update:1000] date +\"%-I:%M%p\"";
+          text = "cmd[update:1000] date +\"%-I:%M %p\"";
           color = "$text";
           font_size = 90;
           font_family = "$font";
