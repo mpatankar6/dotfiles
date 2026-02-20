@@ -37,6 +37,9 @@
           tooltip = true;
           tooltip-format = "Power Menu";
         };
+        "hyprland/workspaces" = {
+          show-special = true;
+        };
         "custom/cpu" = {
           interval = 2;
           return-type = "json";
