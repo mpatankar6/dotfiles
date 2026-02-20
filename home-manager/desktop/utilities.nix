@@ -20,4 +20,6 @@
   catppuccin.obs.enable = true;
   programs.mangohud.enable = true;
   catppuccin.mangohud.enable = true;
+  programs.mpv.enable = true;
+  catppuccin.mpv.enable = true;
 }
