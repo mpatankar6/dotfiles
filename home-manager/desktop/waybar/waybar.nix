@@ -33,25 +33,12 @@
         };
         "custom/power" = {
           format = "";
-          on-click = "wleave";
+          on-click = "app2unit -- wleave";
           tooltip = true;
           tooltip-format = "Power Menu";
         };
         "hyprland/workspaces" = {
           show-special = true;
-        };
-        "custom/cpu" = {
-          interval = 2;
-          return-type = "json";
-          exec = toString ./cpu.sh;
-          format = " {:>3}%";
-        };
-
-        "custom/gpu" = {
-          interval = 2;
-          return-type = "json";
-          exec = toString ./gpu.sh;
-          format = "󰢮 {:>3}%";
         };
         "hyprland/window" = {
           max-length = 100;
@@ -59,6 +46,18 @@
             "" = "Desktop";
           };
           tooltip-format = "Class: {class}";
+        };
+        "custom/cpu" = {
+          interval = 2;
+          return-type = "json";
+          exec = toString ./cpu.sh;
+          format = " {:>3}%";
+        };
+        "custom/gpu" = {
+          interval = 2;
+          return-type = "json";
+          exec = toString ./gpu.sh;
+          format = "󰢮 {:>3}%";
         };
         memory = {
           interval = 2;

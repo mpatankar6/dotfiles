@@ -3,6 +3,7 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
+    systemd.enable = false;
     settings = {
       general = {
         "col.active_border" = "rgba($mauveAlphaee) rgba($blueAlphaee) 45deg";
@@ -45,6 +46,10 @@
           "zoomFactor, 1, 7, quick"
         ];
       };
+      misc = {
+        disable_splash_rendering = true;
+        disable_hyprland_logo = true;
+      };
       "$mod" = "SUPER";
       bind = [
         "$mod, F, fullscreen, 0"
@@ -63,9 +68,9 @@
         "$mod SHIFT, 4, exec, ${./screenshot.sh} region"
         "$mod SHIFT, S, exec, ${./screenshot.sh} save"
         "$mod, TAB, workspace, previous"
-        "$mod, SPACE, exec, fuzzel"
-        "$mod, RETURN, exec, alacritty"
-        "$mod, ESCAPE, exec, pgrep wleave || wleave"
+        "$mod, SPACE, exec, app2unit -- fuzzel"
+        "$mod, RETURN, exec, app2unit -- alacritty"
+        "$mod, ESCAPE, exec, pgrep wleave || app2unit -- wleave"
       ]
       ++ builtins.concatLists (
         map (ws: [

@@ -48,12 +48,18 @@
   services.xserver.videoDrivers = [ "nvidia" ];
   services.greetd = {
     enable = true;
-    settings.default_session.command = "${pkgs.tuigreet}/bin/tuigreet --remember --cmd start-hyprland";
+    settings.default_session.command = ''
+      ${pkgs.tuigreet}/bin/tuigreet \
+      --remember \
+      --cmd '${pkgs.uwsm}/bin/uwsm start hyprland.desktop'
+    '';
   };
-
   programs.fish.enable = true;
-  programs.hyprland.enable = true;
   programs.steam.enable = true;
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
 
   users.users.mihir = {
     isNormalUser = true;
