@@ -6,10 +6,13 @@
     profiles.default = {
       name = "default";
       isDefault = true;
+      extensions.force = true;
       extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
+        firefox-color
         ublock-origin
-        catppuccin-mocha-mauve
       ];
     };
   };
+  catppuccin.firefox.enable = true;
+  catppuccin.firefox.force = true;
 }
