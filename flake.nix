@@ -96,10 +96,11 @@
               ./home-manager/desktop/firefox.nix
               ./home-manager/desktop/fuzzel.nix
               ./home-manager/desktop/gtk.nix
-              ./home-manager/desktop/hyprland.nix
+              ./home-manager/desktop/hyprland/hyprland.nix
               ./home-manager/desktop/hyprlock.nix
               ./home-manager/desktop/hyprpaper.nix
               ./home-manager/desktop/mako.nix
+              ./home-manager/desktop/utilities.nix
               ./home-manager/desktop/waybar/waybar.nix
               ./home-manager/desktop/wleave.nix
             ];

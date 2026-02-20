@@ -17,6 +17,7 @@ in
     recursive = true;
   }) configs;
   home.packages = with pkgs; [
+    clang
     fastfetch
     fd
     fzf
