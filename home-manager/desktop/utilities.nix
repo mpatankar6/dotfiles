@@ -8,6 +8,7 @@
     grim
     libnotify
     lm_sensors
+    nerd-fonts.jetbrains-mono
     playerctl
     slurp
     wl-clipboard

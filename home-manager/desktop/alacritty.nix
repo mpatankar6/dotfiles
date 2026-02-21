@@ -19,8 +19,7 @@
           family = "JetBrainsMono Nerd Font";
           style = "Regular";
         };
-        # Font scaling works differently on MacOS vs Linux
-        size = if pkgs.stdenv.isDarwin then 16.0 else 12.0;
+        size = 12.0;
       };
     };
   };

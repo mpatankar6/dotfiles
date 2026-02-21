@@ -25,7 +25,6 @@ in
     git
     lua-language-server
     neovim
-    nerd-fonts.jetbrains-mono
     nixd
     nixfmt
     ripgrep

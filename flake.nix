@@ -68,7 +68,7 @@
           (makeHomeManagerUser {
             homeDirectory = "/Users/mihir";
             modules = [
-              ./home-manager/alacritty.nix
+              ./home-manager/macbook/ghostty.nix
             ];
           })
         ];
@@ -91,7 +91,7 @@
           home-manager.nixosModules.home-manager
           (makeHomeManagerUser {
             modules = [
-              ./home-manager/alacritty.nix
+              ./home-manager/desktop/alacritty.nix
               ./home-manager/desktop/cursor.nix
               ./home-manager/desktop/firefox.nix
               ./home-manager/desktop/fuzzel.nix
