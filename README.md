@@ -1,8 +1,8 @@
 # Dotfiles
 ## Design
-My setup mostly revolves around [Nix](https://nixos.org/). I have taken a
-pragmatic approach, and while Nix is awesome, for me it isn't the be all and
-end all of system configuration.
+My setup revolves around [Nix](https://nixos.org/), though I have taken a 
+slightly pragmatic approach. While Nix is awesome, for me, it isn't the be-all
+and end-all of system configuration.
 
 ## Screenshots
 ![My NixOS Desktop](./images/desktop.png)
