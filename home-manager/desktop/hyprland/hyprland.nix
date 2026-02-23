@@ -50,6 +50,11 @@
         disable_splash_rendering = true;
         disable_hyprland_logo = true;
       };
+      cursor.no_warps = true;
+      ecosystem = {
+        no_update_news = true;
+        no_donation_nag = true;
+      };
       "$mod" = "SUPER";
       bind = [
         "$mod, F, fullscreen, 0"
