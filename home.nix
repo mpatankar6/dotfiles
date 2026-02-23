@@ -18,6 +18,7 @@ in
   }) configs;
   home.packages = with pkgs; [
     clang
+    clang-tools
     fastfetch
     fd
     fzf
