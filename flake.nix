@@ -79,7 +79,11 @@
           ./machines/wsl/configuration.nix
           nixos-wsl.nixosModules.wsl
           home-manager.nixosModules.home-manager
-          (makeHomeManagerUser { })
+          (makeHomeManagerUser {
+            modules = [
+              ./home-manager/wsl/utilities.nix
+            ];
+          })
         ];
       };
       nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
