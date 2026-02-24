@@ -14,7 +14,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nur.url = "github:nix-community/NUR";
     catppuccin.url = "github:catppuccin/nix";
   };
@@ -25,7 +24,6 @@
       nix-darwin,
       nixos-wsl,
       home-manager,
-      neovim-nightly-overlay,
       nur,
       catppuccin,
       ...
@@ -33,7 +31,6 @@
     let
       overlayModule = {
         nixpkgs.overlays = [
-          neovim-nightly-overlay.overlays.default
           nur.overlays.default
         ];
       };
@@ -50,11 +47,13 @@
           home-manager.sharedModules = [
             ./home.nix
             catppuccin.homeModules.catppuccin
+            ./home-manager/common/neovim/neovim.nix
           ];
           home-manager.users.${username} = {
+            imports = modules;
             home.username = username;
             home.homeDirectory = homeDirectory;
-            imports = modules;
+            home.stateVersion = "25.11";
           };
         };
     in

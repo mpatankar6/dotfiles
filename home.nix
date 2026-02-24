@@ -5,7 +5,6 @@ let
   configs = {
     fastfetch = "fastfetch";
     fish = "fish";
-    nvim = "nvim";
     starship = "starship";
     tmux = "tmux";
   };
@@ -24,20 +23,10 @@ in
     fzf
     gh
     git
-    lua-language-server
-    neovim
-    nixd
-    nixfmt
     ripgrep
     starship
     tmux
     tree
     zoxide
   ];
-  programs.direnv = {
-    enable = true;
-    enableFishIntegration = true;
-    nix-direnv.enable = true;
-  };
-  home.stateVersion = "25.11";
 }

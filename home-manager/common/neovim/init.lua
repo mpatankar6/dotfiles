@@ -11,26 +11,12 @@ vim.o.shiftwidth = 2
 vim.o.expandtab = true
 vim.o.signcolumn = "yes"
 
-vim.pack.add({
-  "https://github.com/catppuccin/nvim.git",
-  "https://github.com/ibhagwan/fzf-lua.git",
-  "https://github.com/neovim/nvim-lspconfig.git",
-  "https://github.com/nvim-lualine/lualine.nvim.git",
-  "https://github.com/nvim-tree/nvim-web-devicons.git",
-  "https://github.com/stevearc/oil.nvim.git",
-  { src = "https://github.com/nvim-treesitter/nvim-treesitter.git", version = "master" },
-  { src = "https://github.com/saghen/blink.cmp.git",                version = vim.version.range("*") },
-})
-
-require("catppuccin").setup({ transparent_background = true })
-vim.cmd.colorscheme("catppuccin")
 require("fzf-lua").setup()
-require("lualine").setup({})
----@diagnostic disable-next-line: missing-fields
-require("nvim-treesitter.configs").setup({
-  auto_install = true,
-  highlight = { enable = true },
+require("gitsigns").setup({
+  current_line_blame_opts = { delay = 0 }
 })
+---@diagnostic disable-next-line: undefined-field
+require("lualine").setup()
 require("oil").setup()
 require("blink.cmp").setup({
   signature = { enabled = true },
@@ -55,15 +41,20 @@ vim.lsp.config("rust_analyzer", {
     }
   }
 })
-vim.lsp.enable({ "lua_ls", "rust_analyzer", "clangd", "ruff", "ty", "nixd" })
+
+vim.lsp.enable({ "lua_ls", "rust_analyzer", "clangd", "ruff", "ty", "nixd", "marksman" })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = '*',
+  callback = function() pcall(vim.treesitter.start) end,
+})
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function() vim.highlight.on_yank() end
+  callback = function() vim.highlight.on_yank() end,
 })
 
 vim.keymap.set("n", "<leader>F", vim.lsp.buf.format, { desc = "Format Buffer" })
 local fzf_lua = require("fzf-lua")
-fzf_lua.register_ui_select()
 vim.keymap.set("n", "<leader>ff", fzf_lua.files, { desc = "Find Files" })
 vim.keymap.set("n", "<leader>fr", fzf_lua.resume, { desc = "Resume Find" })
 vim.keymap.set("n", "<leader>fR", fzf_lua.registers, { desc = "Find Registers" })
@@ -75,3 +66,12 @@ vim.keymap.set("n", "<leader>fh", fzf_lua.helptags, { desc = "Find Help Tags" })
 vim.keymap.set("n", "<leader>fd", fzf_lua.diagnostics_document, { desc = "Find Diagnostics (Document)" })
 vim.keymap.set("n", "<leader>fD", fzf_lua.diagnostics_workspace, { desc = "Find Diagnostics (Workspace)" })
 vim.keymap.set("n", "<leader>s", fzf_lua.spell_suggest, { desc = "Spelling Suggestions" })
+local gitsigns = require("gitsigns")
+vim.keymap.set("n", "]h", ":Gitsigns next_hunk<CR>", { desc = "Next Hunk" })
+vim.keymap.set("n", "[h", ":Gitsigns prev_hunk<CR>", { desc = "Previous Hunk" })
+vim.keymap.set("n", "<leader>rh", ":Gitsigns reset_hunk<CR>", { desc = "Reset Hunk" })
+vim.keymap.set("n", "<leader>ph", gitsigns.preview_hunk, { desc = "Preview Hunk" })
+vim.keymap.set("n", "<leader>tb", gitsigns.toggle_current_line_blame, { desc = "Toggle Current Line Blame" })
+vim.keymap.set({ "o", "x" }, "ih", gitsigns.select_hunk, { desc = "Select In Hunk Text Object" })
+local oil = require("oil")
+vim.keymap.set("n", "<leader>o", oil.open, { desc = "Open Oil" })
