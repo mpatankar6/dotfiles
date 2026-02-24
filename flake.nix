@@ -47,7 +47,7 @@
           home-manager.sharedModules = [
             ./home.nix
             catppuccin.homeModules.catppuccin
-            ./home-manager/common/neovim/neovim.nix
+            ./home-manager/common
           ];
           home-manager.users.${username} = {
             imports = modules;
@@ -66,9 +66,7 @@
           home-manager.darwinModules.home-manager
           (makeHomeManagerUser {
             homeDirectory = "/Users/mihir";
-            modules = [
-              ./home-manager/macbook/ghostty.nix
-            ];
+            modules = [ ./home-manager/macbook ];
           })
         ];
       };
@@ -80,9 +78,7 @@
           nixos-wsl.nixosModules.wsl
           home-manager.nixosModules.home-manager
           (makeHomeManagerUser {
-            modules = [
-              ./home-manager/wsl/utilities.nix
-            ];
+            modules = [ ./home-manager/wsl ];
           })
         ];
       };
@@ -93,20 +89,7 @@
           ./machines/desktop/configuration.nix
           home-manager.nixosModules.home-manager
           (makeHomeManagerUser {
-            modules = [
-              ./home-manager/desktop/alacritty.nix
-              ./home-manager/desktop/cursor.nix
-              ./home-manager/desktop/firefox.nix
-              ./home-manager/desktop/fuzzel.nix
-              ./home-manager/desktop/gtk.nix
-              ./home-manager/desktop/hyprland/hyprland.nix
-              ./home-manager/desktop/hyprlock.nix
-              ./home-manager/desktop/hyprpaper.nix
-              ./home-manager/desktop/mako.nix
-              ./home-manager/desktop/utilities.nix
-              ./home-manager/desktop/waybar/waybar.nix
-              ./home-manager/desktop/wleave.nix
-            ];
+            modules = [ ./home-manager/desktop ];
           })
         ];
       };

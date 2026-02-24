@@ -1,8 +1,20 @@
-# Programs that either don't have home manager modules or don't have enough
-# config to warrant their own file.
 { pkgs, ... }:
 
 {
+  imports = [
+    ./alacritty.nix
+    ./cursor.nix
+    ./firefox.nix
+    ./fuzzel.nix
+    ./gtk.nix
+    ./hyprland/hyprland.nix
+    ./hyprlock.nix
+    ./hyprpaper.nix
+    ./mako.nix
+    ./waybar/waybar.nix
+    ./wleave.nix
+  ];
+
   home.packages = with pkgs; [
     app2unit
     grim
