@@ -15,8 +15,7 @@ require("fzf-lua").setup()
 require("gitsigns").setup({
   current_line_blame_opts = { delay = 0 }
 })
----@diagnostic disable-next-line: undefined-field
-require("lualine").setup()
+require("lualine").setup({})
 require("oil").setup()
 require("blink.cmp").setup({
   signature = { enabled = true },
@@ -42,7 +41,15 @@ vim.lsp.config("rust_analyzer", {
   }
 })
 
-vim.lsp.enable({ "lua_ls", "rust_analyzer", "clangd", "ruff", "ty", "nixd", "marksman" })
+vim.lsp.enable({
+  "clangd",
+  "lua_ls",
+  "marksman",
+  "nixd",
+  "ruff",
+  "rust_analyzer",
+  "ty",
+})
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = '*',
