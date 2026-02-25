@@ -2,9 +2,9 @@
 
 {
   imports = [
-    ./neovim/neovim.nix
     ./direnv.nix
-    # ./fastfetch.nix
+    ./fastfetch.nix
+    ./neovim/neovim.nix
     ./tmux.nix
   ];
 

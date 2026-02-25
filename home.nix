@@ -3,7 +3,6 @@
 let
   configs-source = "${config.home.homeDirectory}/dotfiles/config";
   configs = {
-    fastfetch = "fastfetch";
     fish = "fish";
     starship = "starship";
   };
@@ -17,7 +16,6 @@ in
   home.packages = with pkgs; [
     clang
     clang-tools
-    fastfetch
     fd
     fzf
     gh
