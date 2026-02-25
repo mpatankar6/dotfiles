@@ -16,6 +16,7 @@
   ];
 
   home.packages = with pkgs; [
+    prismlauncher
     app2unit
     grim
     libnotify
@@ -28,12 +29,17 @@
   ];
 
   services.cliphist.enable = true;
-  programs.zathura.enable = true;
-  catppuccin.zathura.enable = true;
-  programs.obs-studio.enable = true;
-  catppuccin.obs.enable = true;
-  programs.mangohud.enable = true;
-  catppuccin.mangohud.enable = true;
-  programs.mpv.enable = true;
-  catppuccin.mpv.enable = true;
+
+  programs = {
+    mangohud.enable = true;
+    mpv.enable = true;
+    obs-studio.enable = true;
+    zathura.enable = true;
+  };
+  catppuccin = {
+    mangohud.enable = true;
+    mpv.enable = true;
+    obs.enable = true;
+    zathura.enable = true;
+  };
 }
