@@ -6,7 +6,6 @@ let
     fastfetch = "fastfetch";
     fish = "fish";
     starship = "starship";
-    tmux = "tmux";
   };
 in
 {
@@ -25,7 +24,6 @@ in
     git
     ripgrep
     starship
-    tmux
     tree
     zoxide
   ];
