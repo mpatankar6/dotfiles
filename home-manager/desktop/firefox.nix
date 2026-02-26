@@ -13,6 +13,5 @@
       ];
     };
   };
-  catppuccin.firefox.enable = true;
   catppuccin.firefox.force = true;
 }

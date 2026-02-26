@@ -27,11 +27,8 @@
 
     initLua = builtins.readFile ./init.lua;
   };
-  catppuccin.nvim = {
-    enable = true;
-    settings = {
-      transparent_background = true;
-      show_end_of_buffer = true;
-    };
+  catppuccin.nvim.settings = {
+    transparent_background = true;
+    show_end_of_buffer = true;
   };
 }

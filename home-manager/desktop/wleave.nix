@@ -40,5 +40,4 @@
       ];
     };
   };
-  catppuccin.wleave.enable = true;
 }

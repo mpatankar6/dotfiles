@@ -109,5 +109,4 @@
     };
     systemd.variables = [ "--all" ];
   };
-  catppuccin.hyprland.enable = true;
 }

@@ -23,5 +23,4 @@
       };
     };
   };
-  catppuccin.alacritty.enable = true;
 }

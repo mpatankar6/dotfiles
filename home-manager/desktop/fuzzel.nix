@@ -20,6 +20,4 @@
     Terminal=true
     Type=Application
   '';
-
-  catppuccin.fuzzel.enable = true;
 }

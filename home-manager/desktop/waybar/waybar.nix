@@ -99,5 +99,4 @@
     ];
     style = builtins.readFile ./style.css;
   };
-  catppuccin.waybar.enable = true;
 }

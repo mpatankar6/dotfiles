@@ -36,10 +36,4 @@
     obs-studio.enable = true;
     zathura.enable = true;
   };
-  catppuccin = {
-    mangohud.enable = true;
-    mpv.enable = true;
-    obs.enable = true;
-    zathura.enable = true;
-  };
 }

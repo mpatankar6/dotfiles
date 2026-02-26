@@ -41,8 +41,5 @@
       };
     };
   };
-  catppuccin.hyprlock = {
-    enable = true;
-    useDefaultConfig = false;
-  };
+  catppuccin.hyprlock.useDefaultConfig = false;
 }

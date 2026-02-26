@@ -17,5 +17,4 @@
       macos-option-as-alt = true;
     };
   };
-  catppuccin.ghostty.enable = true;
 }
