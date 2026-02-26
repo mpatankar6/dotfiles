@@ -45,7 +45,6 @@
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
           home-manager.sharedModules = [
-            ./home.nix
             catppuccin.homeModules.catppuccin
             ./home-manager/common
           ];
