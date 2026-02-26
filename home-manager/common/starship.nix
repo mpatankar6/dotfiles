@@ -52,7 +52,7 @@
       nix_shell.symbol = " ";
       nodejs.symbol = " ";
       ocaml.symbol = " ";
-      package.symbol = "󰏗 ";
+      package.disabled = true;
       perl.symbol = " ";
       php.symbol = " ";
       pijul_channel.symbol = " ";
