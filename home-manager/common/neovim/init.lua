@@ -42,6 +42,7 @@ vim.lsp.config("rust_analyzer", {
 })
 
 vim.lsp.enable({
+  "bashls",
   "clangd",
   "lua_ls",
   "marksman",

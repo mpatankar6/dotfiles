@@ -18,6 +18,7 @@
     ];
 
     extraPackages = with pkgs; [
+      bash-language-server
       clang-tools
       lua-language-server
       marksman
