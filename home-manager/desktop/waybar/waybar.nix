@@ -83,6 +83,7 @@
         };
         clock = {
           format = " {:%I:%M %p}";
+          tooltip-format = "{:%A, %B %d, %Y\n%I:%M:%S %p}";
           interval = 1;
         };
         bluetooth = {
