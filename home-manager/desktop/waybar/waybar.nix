@@ -19,6 +19,7 @@
             "custom/cpu"
             "custom/gpu"
             "memory"
+            "custom/brightness"
             "pulseaudio"
             "clock"
           ];
@@ -48,21 +49,31 @@
           tooltip-format = "Class: {class}";
         };
         "custom/cpu" = {
-          interval = 2;
           return-type = "json";
           exec = toString ./cpu.sh;
           format = " {:>3}%";
+          interval = 2;
         };
         "custom/gpu" = {
-          interval = 2;
           return-type = "json";
           exec = toString ./gpu.sh;
           format = "󰢮 {:>3}%";
+          interval = 2;
         };
         memory = {
-          interval = 2;
           format = " {percentage:3}%";
           tooltip-format = "RAM: {used:0.1f}G / {total:0.1f}G";
+          interval = 2;
+        };
+        "custom/brightness" = {
+          format = " {:>3}%";
+          tooltip-format= "Monitor Brightness";
+          exec = "monitor-brightness";
+          on-click = "monitor-brightness rebuild-cache";
+          on-scroll-up = "monitor-brightness +";
+          on-scroll-down = "monitor-brightness -";
+          interval = "once";
+          signal = 1;
         };
         pulseaudio = {
           format = "󰕾 {volume:3}%";
@@ -73,7 +84,6 @@
         clock = {
           format = " {:%I:%M %p}";
           interval = 1;
-          tooltip-format = "{:%A, %B %d, %Y\n%I:%M:%S %p}";
         };
         bluetooth = {
           format = "󰂯";

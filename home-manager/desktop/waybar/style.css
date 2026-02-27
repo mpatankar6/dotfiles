@@ -33,12 +33,12 @@
 }
 
 #workspaces button {
-  color: @lavender;
+  color: @text;
   border: none;
 }
 
 #workspaces button.active {
-  color: @rosewater;
+  color: @mauve;
 }
 
 #workspaces button:hover {
@@ -61,8 +61,12 @@
   color: @green;
 }
 
-#pulseaudio {
+#custom-brightness {
   color: @teal;
+}
+
+#pulseaudio {
+  color: @blue;
 }
 
 #clock {

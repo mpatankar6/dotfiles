@@ -13,16 +13,18 @@
     ./mako.nix
     ./waybar/waybar.nix
     ./wleave.nix
+    ./monitor-brightness/monitor-brightness.nix
   ];
 
   home.packages = with pkgs; [
-    prismlauncher
     app2unit
+    ddcutil
     grim
     libnotify
     lm_sensors
     nerd-fonts.jetbrains-mono
     playerctl
+    prismlauncher
     slurp
     wl-clipboard
     xdg-utils

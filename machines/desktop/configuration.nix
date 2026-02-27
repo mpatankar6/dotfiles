@@ -32,6 +32,10 @@
       Policy.AutoEnable = true;
     };
   };
+  hardware.i2c = {
+    enable = true;
+    group = "wheel";
+  };
 
   services.openssh.enable = true;
   services.blueman.enable = true;
