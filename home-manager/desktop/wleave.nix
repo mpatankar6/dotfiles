@@ -9,7 +9,7 @@
       buttons = [
         {
           label = "lock";
-          action = "hyprlock";
+          action = "loginctl lock-session";
           text = "Lock";
           keybind = "l";
         }
@@ -33,7 +33,7 @@
         }
         {
           label = "suspend";
-          action = "hyprlock & systemctl suspend";
+          action = "loginctl lock-session & systemctl suspend";
           text = "Suspend";
           keybind = "u";
         }

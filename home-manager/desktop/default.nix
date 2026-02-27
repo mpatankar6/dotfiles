@@ -7,13 +7,14 @@
     ./firefox.nix
     ./fuzzel.nix
     ./gtk.nix
+    ./hypridle.nix
     ./hyprland/hyprland.nix
     ./hyprlock.nix
     ./hyprpaper.nix
     ./mako.nix
+    ./monitor-brightness/monitor-brightness.nix
     ./waybar/waybar.nix
     ./wleave.nix
-    ./monitor-brightness/monitor-brightness.nix
   ];
 
   home.packages = with pkgs; [
