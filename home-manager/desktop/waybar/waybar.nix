@@ -13,12 +13,20 @@ in
         modules-left = [
           "custom/power"
           "hyprland/workspaces"
+          "group/toggles"
         ];
         modules-center = [ "hyprland/window" ];
         modules-right = [
           "group/system"
           "group/connectivity"
         ];
+        "group/toggles" = {
+          orientation = "horizontal";
+          modules = [
+            "custom/night-shift"
+            "idle_inhibitor"
+          ];
+        };
         "group/system" = {
           orientation = "horizontal";
           modules = [
@@ -46,6 +54,15 @@ in
         };
         "hyprland/workspaces" = {
           show-special = true;
+        };
+        "custom/night-shift" = {
+          format = "󰖚";
+        };
+        "idle_inhibitor" = {
+          format = "";
+          "tooltip" = true;
+          "tooltip-format-activated" = "Idle Inhibitor: On";
+          "tooltip-format-deactivated" = "Idle Inhibitor: Off";
         };
         "hyprland/window" = {
           max-length = 100;

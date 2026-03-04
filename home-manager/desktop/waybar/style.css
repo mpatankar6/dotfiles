@@ -1,11 +1,12 @@
 * {
-  font-family: "JetBrainsMono Nerd Font", sans-serif;
+  font-family: "JetBrainsMono Nerd Font Propo", sans-serif;
   font-weight: bold;
   font-size: 14px;
 }
 
 #custom-power,
 #workspaces,
+#toggles,
 #window,
 #system,
 #connectivity {
@@ -15,22 +16,22 @@
 }
 
 /* Horizontal Spacing */
+#toggles *,
 #window *,
 #system *,
 #connectivity * {
   margin: 0 1rem;
 }
 
-#custom-power {
-  color: @sky;
-  font-size: 18;
-  min-width: 1.8em;
-  padding: 0 0.2em 0 0;
-}
-
 #waybar {
   background: transparent;
   color: @text;
+}
+
+#custom-power {
+  color: @sky;
+  font-size: 18;
+  min-width: 2em;
 }
 
 #workspaces button {
@@ -48,6 +49,13 @@
   text-shadow: none;
   transition: none;
   background-image: none;
+}
+
+#idle_inhibitor.activated {
+  color: @red;
+  text-shadow:
+    0 0 2px alpha(@red, 1.0),
+    0 0 4px alpha(@red, 0.9);
 }
 
 #custom-cpu {
@@ -72,9 +80,4 @@
 
 #clock {
   color: @lavender;
-}
-
-#network {
-  /* Compensate for slight icon misalignment */
-  padding: 0 0.4rem 0 0;
 }
