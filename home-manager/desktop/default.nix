@@ -13,8 +13,8 @@
     ./hyprpaper.nix
     ./mako.nix
     ./monitor-brightness/monitor-brightness.nix
+    ./powermenu/powermenu.nix
     ./waybar/waybar.nix
-    ./wleave.nix
   ];
 
   home.packages = with pkgs; [

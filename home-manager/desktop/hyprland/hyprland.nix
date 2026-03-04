@@ -79,7 +79,7 @@
         "$mod, TAB, workspace, previous"
         "$mod, SPACE, exec, app2unit -- fuzzel"
         "$mod, RETURN, exec, app2unit -- alacritty"
-        "$mod, ESCAPE, exec, pgrep wleave || app2unit -- wleave"
+        "$mod, ESCAPE, exec, powermenu"
       ]
       ++ builtins.concatLists (
         map (ws: [

@@ -1,3 +1,9 @@
+{ pkgs, ... }:
+
+let
+  cpuInfo = pkgs.writeShellScript "cpu" (builtins.readFile ./cpu.sh);
+  gpuInfo = pkgs.writeShellScript "gpu" (builtins.readFile ./gpu.sh);
+in
 {
   programs.waybar = {
     enable = true;
@@ -33,8 +39,8 @@
           ];
         };
         "custom/power" = {
-          format = "";
-          on-click = "app2unit -- wleave";
+          format = "";
+          on-click = "powermenu";
           tooltip = true;
           tooltip-format = "Power Menu";
         };
@@ -50,13 +56,13 @@
         };
         "custom/cpu" = {
           return-type = "json";
-          exec = toString ./cpu.sh;
+          exec = "${cpuInfo}";
           format = " {:>3}%";
           interval = 2;
         };
         "custom/gpu" = {
           return-type = "json";
-          exec = toString ./gpu.sh;
+          exec = "${gpuInfo}";
           format = "󰢮 {:>3}%";
           interval = 2;
         };
@@ -67,7 +73,7 @@
         };
         "custom/brightness" = {
           format = " {:>3}%";
-          tooltip-format= "Monitor Brightness";
+          tooltip-format = "Monitor Brightness";
           exec = "monitor-brightness";
           on-click = "monitor-brightness rebuild-cache";
           on-scroll-up = "monitor-brightness +";
