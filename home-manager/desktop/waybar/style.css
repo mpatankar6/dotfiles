@@ -6,6 +6,7 @@
 
 #custom-power,
 #workspaces,
+#window,
 #system,
 #connectivity {
   background-color: @crust;
@@ -23,7 +24,8 @@
 #custom-power {
   color: @sky;
   font-size: 18;
-  min-width: 1.75em;
+  min-width: 1.8em;
+  padding: 0 0.2em 0 0;
 }
 
 #waybar {
