@@ -27,17 +27,20 @@
         }
       ];
       "input-field" = {
+        size = "320, 60";
+        outline_thickness = 2;
         outer_color = "$accent";
         inner_color = "$surface0";
-        dot-size = 0.1;
+        dot-size = 0.2;
         font_color = "$text";
         font_family = "$font";
         fade_on_empty = false;
-        font-color = "$textAlpha";
-        placeholder_text = "󰌾 <span font_size='16pt'>Password for <i>$USER</i></span>";
-        check_color = "$accent";
+        placeholder_text = "<span alpha='75%'>󰌾 Password for <i>$USER</i></span>";
+        check_color = "$blue";
         fail_color = "$red";
         capslock_color = "$yellow";
+        position = "0, 120";
+        valign = "bottom";
       };
     };
   };
