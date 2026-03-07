@@ -73,9 +73,6 @@
         "$mod, N, workspace, +1"
         "$mod, P, workspace, -1"
         "$mod, V, exec, cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
-        "$mod SHIFT, 3, exec, ${./screenshot.sh} full"
-        "$mod SHIFT, 4, exec, ${./screenshot.sh} region"
-        "$mod SHIFT, S, exec, ${./screenshot.sh} save"
         "$mod, TAB, workspace, previous"
         "$mod, SPACE, exec, app2unit -- fuzzel"
         "$mod, RETURN, exec, app2unit -- alacritty"
@@ -103,6 +100,9 @@
         ", XF86AudioPause, exec, playerctl play-pause"
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioPrev, exec, playerctl previous"
+        "$mod SHIFT, 3, exec, screenshot full"
+        "$mod SHIFT, 4, exec, screenshot region"
+        "$mod SHIFT, S, exec, screenshot save"
       ];
       windowrule = [
         "suppress_event maximize, match:class .*"

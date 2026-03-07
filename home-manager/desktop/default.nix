@@ -8,13 +8,14 @@
     ./fuzzel.nix
     ./gtk.nix
     ./hypridle.nix
-    ./hyprland/hyprland.nix
+    ./hyprland.nix
     ./hyprlock.nix
     ./hyprpaper.nix
     ./hyprsunset/hyprsunset.nix
     ./mako.nix
     ./monitor-brightness/monitor-brightness.nix
     ./powermenu/powermenu.nix
+    ./screenshot/screenshot.nix
     ./waybar/waybar.nix
   ];
 
