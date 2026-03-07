@@ -56,7 +56,7 @@ in
           show-special = true;
         };
         "custom/nightshift" = {
-          format = "󰖚";
+          format = "";
           exec = "toggle-hyprsunset status";
           on-click = "toggle-hyprsunset";
           return-type = "json";
