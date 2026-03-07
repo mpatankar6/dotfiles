@@ -8,8 +8,8 @@ choice=$(printf "󰌾 Lock\n󰤄 Suspend\n󰍃 Logout\n󰑐 Reboot\n󰐥 Shutdow
 
 case "$choice" in
   Lock)     loginctl lock-session ;;
-  Suspend)  loginctl lock-session & systemctl suspend ;;
-  Logout)   hyprctl dispatch exit ;;
+  Suspend)  loginctl lock-session && systemctl suspend ;;
+  Logout)   uwsm stop ;;
   Reboot)   systemctl reboot ;;
   Shutdown) systemctl poweroff ;;
 esac
