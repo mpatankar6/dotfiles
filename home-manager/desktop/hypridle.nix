@@ -5,7 +5,7 @@
       general = {
         lock_cmd = "pidof hyprlock || app2unit -- hyprlock";
         before_sleep_cmd = "loginctl lock-session";
-        after_sleep_cmd = "hyprctl dispatch dpms on";
+        after_sleep_cmd = "hyprctl dispatch dpms on & toggle-hyprsunset resume";
       };
       listener = [
         # Turn off display after 20 minutes

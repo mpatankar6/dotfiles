@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 STATE_FILE="/tmp/hyprsunset-active"
+TEMPERATURE=5500
 
 toggle() {
     if [[ -f "$STATE_FILE" ]]; then
@@ -8,9 +9,15 @@ toggle() {
         hyprctl hyprsunset identity
     else
         touch "$STATE_FILE"
-        hyprctl hyprsunset temperature 5500
+        hyprctl hyprsunset temperature $TEMPERATURE
     fi
     pkill -RTMIN+2 waybar
+}
+
+resume() {
+  if [[ -f "$STATE_FILE" ]]; then
+    hyprctl hyprsunset temperature $TEMPERATURE
+  fi
 }
 
 # This status is designed to be parsed by Waybar
@@ -23,6 +30,7 @@ status() {
 }
 
 case "$1" in
+  resume) resume ;;
   status) status ;;
   *) toggle ;;
 esac
