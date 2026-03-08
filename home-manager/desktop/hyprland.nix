@@ -103,6 +103,7 @@
         "$mod SHIFT, 3, exec, screenshot full"
         "$mod SHIFT, 4, exec, screenshot region"
         "$mod SHIFT, S, exec, screenshot save"
+        ", ESCAPE, exec, pidof hyprlock && systemctl suspend"
       ];
       windowrule = [
         "suppress_event maximize, match:class .*"
