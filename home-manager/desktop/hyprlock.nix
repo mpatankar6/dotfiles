@@ -1,10 +1,14 @@
+let
+  wallpaper = import ./wallpaper.nix;
+in
 {
   programs.hyprlock = {
     enable = true;
     settings = {
       "$font" = "JetBrainsMono Nerd Font Propo";
+      general.hide_cursor = true;
       background = {
-        path = "screenshot";
+        path = wallpaper;
         blur_passes = 3;
         blur_size = 7;
       };
