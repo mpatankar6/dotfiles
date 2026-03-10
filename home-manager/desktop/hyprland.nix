@@ -5,6 +5,10 @@
     enable = true;
     systemd.enable = false;
     settings = {
+      # We can't use `loginctl lock-session` here because hypridle (which
+      # registers it) uses Type=simple, so systemd considers it ready before
+      # it's actually listening on D-Bus. That would cause a race condition.
+      exec-once = [ "app2unit -- hyprlock" ];
       general = {
         "col.active_border" = "rgba($mauveAlphaee) rgba($blueAlphaee) 45deg";
         "col.inactive_border" = "rgba($surface0Alphaaa)";

@@ -37,8 +37,10 @@
     group = "wheel";
   };
 
+  services.getty.autologinUser = "mihir";
   services.openssh.enable = true;
   services.blueman.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
   services.pipewire = {
     enable = true;
     pulse.enable = true;
@@ -50,7 +52,7 @@
       settings.main.capslock = "leftcontrol";
     };
   };
-  services.xserver.videoDrivers = [ "nvidia" ];
+
   programs.fish.enable = true;
   programs.steam.enable = true;
   programs.hyprland = {
