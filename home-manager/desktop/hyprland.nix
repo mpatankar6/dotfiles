@@ -112,4 +112,9 @@
     };
     systemd.variables = [ "--all" ];
   };
+  programs.fish.loginShellInit = lib.mkAfter ''
+    if uwsm check may-start
+        exec uwsm start hyprland.desktop
+    end
+  '';
 }
