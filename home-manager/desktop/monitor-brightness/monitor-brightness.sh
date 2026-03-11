@@ -10,11 +10,11 @@ BUS_CACHE=/tmp/monitor-bus-cache
 BRIGHTNESS_VCP=10
 BRIGHTNESS_STEP_PERCENT=5
 
-rebuild_cache() {
+sync() {
   rm -f "$BRIGHTNESS_CACHE"
   rm -f "$BUS_CACHE"
   get_bus && get_brightness
-  notify-send "Brightness Cache Rebuilt"
+  notify-send "Brightness Synced"
   pkill -RTMIN+1 waybar # Notify Waybar to update
 }
 
@@ -60,6 +60,6 @@ case "$1" in
   "+") increase_brightness ;;
   "-") decrease_brightness ;;
   "") get_brightness ;;
-  "rebuild-cache") rebuild_cache ;;
+  "sync") sync ;;
   *) echo "Unknown argument" ;;
 esac

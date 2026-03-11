@@ -97,7 +97,7 @@ in
           format = " {:>3}%";
           tooltip-format = "Monitor Brightness";
           exec = "monitor-brightness";
-          on-click = "monitor-brightness rebuild-cache";
+          on-click = "monitor-brightness sync";
           on-scroll-up = "monitor-brightness +";
           on-scroll-down = "monitor-brightness -";
           interval = "once";
