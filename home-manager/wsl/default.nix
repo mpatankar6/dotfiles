@@ -2,9 +2,10 @@
 
 {
   home.packages = with pkgs; [
+    bun
     ibmcloud-cli
     kubectl
-    nodejs_latest
+    nodejs
     uv
     wget
     wsl-open
