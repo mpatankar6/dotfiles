@@ -37,7 +37,10 @@
     group = "wheel";
   };
 
-  services.getty.autologinUser = "mihir";
+  services.getty = {
+    autologinUser = "mihir";
+    autologinOnce = true;
+  };
   services.openssh.enable = true;
   services.blueman.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
