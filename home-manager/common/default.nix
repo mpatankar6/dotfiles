@@ -16,7 +16,7 @@
   home.packages = with pkgs; [
     clang
     gnumake
-    just
+    lldb
     tree
   ];
 
