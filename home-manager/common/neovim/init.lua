@@ -43,12 +43,14 @@ vim.lsp.config("rust_analyzer", {
 
 vim.lsp.enable({
   "bashls",
+  "biome",
   "clangd",
   "lua_ls",
   "marksman",
   "nixd",
   "ruff",
   "rust_analyzer",
+  "ts_ls",
   "ty",
 })
 

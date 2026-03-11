@@ -19,11 +19,13 @@
 
     extraPackages = with pkgs; [
       bash-language-server
+      biome
       clang-tools
       lua-language-server
       marksman
       nixd
       nixfmt
+      typescript-language-server
     ];
 
     initLua = builtins.readFile ./init.lua;
