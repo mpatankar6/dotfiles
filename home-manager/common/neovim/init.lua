@@ -65,6 +65,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 vim.keymap.set("n", "<leader>F", vim.lsp.buf.format, { desc = "Format Buffer" })
 local fzf_lua = require("fzf-lua")
+fzf_lua.register_ui_select()
 vim.keymap.set("n", "<leader>ff", fzf_lua.files, { desc = "Find Files" })
 vim.keymap.set("n", "<leader>fr", fzf_lua.resume, { desc = "Resume Find" })
 vim.keymap.set("n", "<leader>fR", fzf_lua.registers, { desc = "Find Registers" })

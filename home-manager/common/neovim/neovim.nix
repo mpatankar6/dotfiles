@@ -20,6 +20,7 @@
     extraPackages = with pkgs; [
       bash-language-server
       biome
+      chafa
       clang-tools
       lua-language-server
       marksman
