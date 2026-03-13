@@ -9,6 +9,7 @@
       # registers it) uses Type=simple, so systemd considers it ready before
       # it's actually listening on D-Bus. That would cause a race condition.
       exec-once = [ "app2unit -- hyprlock" ];
+      monitor = ", preferred, auto, 1.07";
       general = {
         "col.active_border" = "rgba($mauveAlphaee) rgba($blueAlphaee) 45deg";
         "col.inactive_border" = "rgba($surface0Alphaaa)";
@@ -51,8 +52,9 @@
         ];
       };
       misc = {
-        disable_splash_rendering = true;
         disable_hyprland_logo = true;
+        disable_splash_rendering = true;
+        vrr = 2;
       };
       cursor.no_warps = true;
       ecosystem = {
