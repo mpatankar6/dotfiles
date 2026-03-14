@@ -61,6 +61,9 @@
         no_update_news = true;
         no_donation_nag = true;
       };
+      xwayland = {
+        force_zero_scaling = true;
+      };
       "$mod" = "SUPER";
       bind = [
         "$mod, F, fullscreen, 0"
