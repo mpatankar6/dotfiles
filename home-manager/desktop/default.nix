@@ -13,6 +13,7 @@
     ./hyprpaper.nix
     ./hyprsunset/hyprsunset.nix
     ./mako.nix
+    ./mangohud.nix
     ./monitor-brightness/monitor-brightness.nix
     ./powermenu/powermenu.nix
     ./screenshot/screenshot.nix
@@ -36,7 +37,6 @@
   services.cliphist.enable = true;
 
   programs = {
-    mangohud.enable = true;
     mpv.enable = true;
     obs-studio.enable = true;
     zathura.enable = true;
