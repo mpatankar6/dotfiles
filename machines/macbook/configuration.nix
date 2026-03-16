@@ -24,6 +24,9 @@
       "/System/Applications/System Settings.app/"
       "/Users/mihir/Applications/Home Manager Apps/Ghostty.app/"
     ];
+    dock.persistent-others = [
+      "/Users/mihir/Downloads"
+    ];
     finder.AppleShowAllExtensions = true;
     finder.ShowPathbar = true;
     finder.ShowStatusBar = true;
