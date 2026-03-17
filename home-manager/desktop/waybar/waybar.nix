@@ -13,6 +13,7 @@ in
         modules-left = [
           "custom/power"
           "hyprland/workspaces"
+          "hyprland/language"
           "group/toggles"
         ];
         modules-center = [ "hyprland/window" ];
@@ -54,11 +55,16 @@ in
         "hyprland/workspaces" = {
           show-special = true;
         };
-        "idle_inhibitor" = {
+        "hyprland/language" = {
+          format-en = "  US ";
+          format-en-intl = " INTL";
+          on-click = "hyprctl switchxkblayout all next";
+        };
+        idle_inhibitor = {
           format = "";
-          "tooltip" = true;
-          "tooltip-format-activated" = "Idle Inhibitor: On";
-          "tooltip-format-deactivated" = "Idle Inhibitor: Off";
+          tooltip = true;
+          tooltip-format-activated = "Idle Inhibitor: On";
+          tooltip-format-deactivated = "Idle Inhibitor: Off";
         };
         "hyprland/window" = {
           max-length = 100;

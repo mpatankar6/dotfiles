@@ -10,6 +10,10 @@
       # it's actually listening on D-Bus. That would cause a race condition.
       exec-once = [ "app2unit -- hyprlock" ];
       monitor = ", preferred, auto, 1.07";
+      input = {
+        kb_layout = "us,us";
+        kb_variant = ",intl";
+      };
       general = {
         "col.active_border" = "rgba($mauveAlphaee) rgba($blueAlphaee) 45deg";
         "col.inactive_border" = "rgba($surface0Alphaaa)";
@@ -66,10 +70,10 @@
       };
       "$mod" = "SUPER";
       bind = [
-        "$mod, F, fullscreen, 0"
         "$mod SHIFT, F, togglefloating"
-        "$mod, S, togglespecialworkspace, X"
-        "$mod CTRL, S, movetoworkspace, special:X"
+        "$mod, F, fullscreen, 0"
+        "$mod, S, togglespecialworkspace, S"
+        "$mod CTRL, S, movetoworkspace, special:S"
         "$mod, Q, killactive"
         "$mod SHIFT, H, movewindow, l"
         "$mod SHIFT, J, movewindow, d"
@@ -83,6 +87,7 @@
         "$mod, P, workspace, -1"
         "$mod, V, exec, cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
         "$mod, TAB, workspace, previous"
+        "$mod SHIFT, SPACE, exec, hyprctl switchxkblayout all next"
         "$mod, SPACE, exec, app2unit -- fuzzel"
         "$mod, RETURN, exec, app2unit -- alacritty"
         "$mod, ESCAPE, exec, powermenu"
@@ -125,5 +130,14 @@
     if uwsm check may-start
         exec uwsm start hyprland.desktop
     end
+  '';
+  # Patch INTL layout because I don't have an ALT_R key.
+  # Prevents 'ć' but I don't use that.
+  home.file.".XCompose".text = ''
+    include "%L"
+    <dead_acute> <c> : "ç"
+    <dead_acute> <C> : "Ç"
+    <dead_acute> <exclam> : "¡"
+    <dead_acute> <question> : "¿"
   '';
 }

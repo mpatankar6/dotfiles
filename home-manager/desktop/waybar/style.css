@@ -6,6 +6,7 @@
 
 #custom-power,
 #workspaces,
+#language,
 #toggles,
 #window,
 #system,
@@ -49,6 +50,11 @@
   text-shadow: none;
   transition: none;
   background-image: none;
+}
+
+#language {
+  font-size: 12px;
+  padding: 0 1em;
 }
 
 #idle_inhibitor.activated {
