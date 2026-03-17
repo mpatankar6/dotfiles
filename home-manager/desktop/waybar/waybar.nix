@@ -56,7 +56,7 @@ in
           show-special = true;
         };
         "hyprland/language" = {
-          format-en = "  US ";
+          format-en = "   US";
           format-en-intl = " INTL";
           on-click = "hyprctl switchxkblayout all next";
         };
