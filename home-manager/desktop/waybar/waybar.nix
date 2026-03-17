@@ -23,7 +23,6 @@ in
         "group/toggles" = {
           orientation = "horizontal";
           modules = [
-            "custom/nightshift"
             "idle_inhibitor"
           ];
         };
@@ -54,14 +53,6 @@ in
         };
         "hyprland/workspaces" = {
           show-special = true;
-        };
-        "custom/nightshift" = {
-          format = "";
-          exec = "toggle-hyprsunset status";
-          on-click = "toggle-hyprsunset";
-          return-type = "json";
-          interval = "once";
-          signal = 2;
         };
         "idle_inhibitor" = {
           format = "";

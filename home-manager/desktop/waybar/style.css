@@ -51,13 +51,6 @@
   background-image: none;
 }
 
-#custom-nightshift.active {
-  color: @peach;
-  text-shadow:
-    0 0 2px alpha(@peach, 1.0),
-    0 0 4px alpha(@peach, 0.9);
-}
-
 #idle_inhibitor.activated {
   color: @red;
   text-shadow:

@@ -11,7 +11,7 @@
     ./hyprland.nix
     ./hyprlock.nix
     ./hyprpaper.nix
-    ./hyprsunset/hyprsunset.nix
+    ./hyprsunset.nix
     ./mako.nix
     ./mangohud.nix
     ./monitor-brightness/monitor-brightness.nix
