@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
   programs.alacritty = {
     enable = true;
@@ -12,14 +10,13 @@
         dynamic_padding = true;
         opacity = 0.8;
         blur = true;
-        option_as_alt = "Both";
       };
       font = {
         normal = {
           family = "JetBrainsMono Nerd Font";
           style = "Regular";
         };
-        size = 12.0;
+        size = 14.0;
       };
     };
   };
