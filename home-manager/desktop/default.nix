@@ -3,7 +3,6 @@
 {
   imports = [
     ../shareable/ghostty.nix
-    ./alacritty.nix
     ./cursor.nix
     ./firefox.nix
     ./fuzzel.nix
