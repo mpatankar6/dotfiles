@@ -22,9 +22,10 @@
   ];
 
   programs = {
+    bat.enable = true;
     fd.enable = true;
-    ripgrep.enable = true;
     gh.enable = true;
+    ripgrep.enable = true;
   };
   catppuccin.enable = true;
 }
