@@ -85,7 +85,7 @@
         "$mod, TAB, workspace, previous"
         "$mod SHIFT, SPACE, exec, hyprctl switchxkblayout all next"
         "$mod, SPACE, exec, app2unit -- fuzzel"
-        "$mod, RETURN, exec, app2unit -- alacritty"
+        "$mod, RETURN, exec, ghostty +new-window"
         "$mod, ESCAPE, exec, powermenu"
       ]
       ++ builtins.concatLists (

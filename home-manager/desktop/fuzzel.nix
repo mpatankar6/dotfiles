@@ -5,7 +5,7 @@
       main = {
         launch-prefix = "app2unit --";
         font = "JetBrainsMono Nerd Font:size=14";
-        terminal = "alacritty -e";
+        terminal = "ghostty +new-window -e";
         width = 35;
         lines = 10;
       };

@@ -2,6 +2,6 @@
 
 {
   imports = [
-    ./ghostty.nix
+    ../shareable/ghostty.nix
   ];
 }
