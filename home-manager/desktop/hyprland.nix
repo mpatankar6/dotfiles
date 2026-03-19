@@ -9,7 +9,6 @@
       # registers it) uses Type=simple, so systemd considers it ready before
       # it's actually listening on D-Bus. That would cause a race condition.
       exec-once = [ "app2unit -- hyprlock" ];
-      monitor = ", preferred, auto, 1.07";
       input = {
         kb_layout = "us,us";
         kb_variant = ",intl";
@@ -64,9 +63,6 @@
       ecosystem = {
         no_update_news = true;
         no_donation_nag = true;
-      };
-      xwayland = {
-        force_zero_scaling = true;
       };
       "$mod" = "SUPER";
       bind = [
