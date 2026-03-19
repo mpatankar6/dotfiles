@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./delta.nix
     ./direnv.nix
     ./fastfetch.nix
     ./fish.nix
