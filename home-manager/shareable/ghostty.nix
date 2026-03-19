@@ -3,7 +3,7 @@
 {
   programs.ghostty = {
     enable = true;
-    systemd.enable = true;
+    systemd.enable = pkgs.stdenv.isLinux;
     package = if pkgs.stdenv.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
     settings = {
       window-padding-x = 10;
