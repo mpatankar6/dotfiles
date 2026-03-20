@@ -24,6 +24,7 @@
 
   programs = {
     bat.enable = true;
+    btop.enable = true;
     fd.enable = true;
     gh.enable = true;
     ripgrep.enable = true;
