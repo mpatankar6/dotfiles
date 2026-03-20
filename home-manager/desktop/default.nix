@@ -26,6 +26,7 @@
     grim
     libnotify
     lm_sensors
+    myxer
     nerd-fonts.jetbrains-mono
     playerctl
     prismlauncher

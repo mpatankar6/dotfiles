@@ -103,6 +103,7 @@ in
         pulseaudio = {
           format = "󰕾 {volume:3}%";
           format-muted = "󰖁 Mute";
+          on-click = "myxer";
           on-scroll-up = "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+";
           on-scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
         };
