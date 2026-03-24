@@ -10,9 +10,9 @@
       background-opacity = 0.8;
       background-blur = true;
       font-size = 14;
-
       # On Linux, this lets ghostty be a persistent daemon.
       quit-after-last-window-closed = false;
+      shell-integration-features = "ssh-terminfo";
     };
   };
 }
