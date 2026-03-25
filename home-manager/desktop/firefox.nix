@@ -3,6 +3,9 @@
 {
   programs.firefox = {
     enable = true;
+    policies = {
+      DisableTelemetry = true;
+    };
     profiles.default = {
       name = "default";
       isDefault = true;
