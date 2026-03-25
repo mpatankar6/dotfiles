@@ -26,6 +26,7 @@
       nixd
       nixfmt
       typescript-language-server
+      zls
     ];
 
     initLua = builtins.readFile ./init.lua;
