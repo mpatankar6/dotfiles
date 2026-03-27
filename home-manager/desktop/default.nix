@@ -24,6 +24,7 @@
     app2unit
     ddcutil
     grim
+    hyprpicker
     libnotify
     lm_sensors
     myxer
