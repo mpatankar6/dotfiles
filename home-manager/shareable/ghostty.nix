@@ -11,7 +11,7 @@
       background-blur = true;
       font-size = 14;
       shell-integration-features = "ssh-terminfo";
-      keybind = "global:ctrl+shift+o=toggle_background_opacity";
+      keybind = "ctrl+alt+o=toggle_background_opacity";
       # On Linux, this lets ghostty be a persistent daemon.
       quit-after-last-window-closed = false;
     };
