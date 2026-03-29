@@ -16,7 +16,6 @@
       bind % split-window -h -c "#{pane_current_path}"
       bind c new-window -c "#{pane_current_path}"
 
-      set -g status-style "bg=default"
       set -g status-position top
       set -g status-left ""
       set -g status-right "#{E:@catppuccin_status_session}"
