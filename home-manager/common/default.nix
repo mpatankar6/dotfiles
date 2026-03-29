@@ -19,6 +19,7 @@
     clang
     gnumake
     lldb
+    python314
     tree
   ];
 
