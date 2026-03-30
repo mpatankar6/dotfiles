@@ -2,9 +2,9 @@
 
 {
   home.packages = with pkgs; [
-    bun
     ibmcloud-cli
     kubectl
+    nodePackages.pnpm
     nodejs
     uv
     wget
