@@ -27,6 +27,7 @@
     hyprpicker
     libnotify
     lm_sensors
+    man-pages
     myxer
     nerd-fonts.jetbrains-mono
     playerctl
