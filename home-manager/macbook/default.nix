@@ -3,5 +3,6 @@
 {
   imports = [
     ../shareable/ghostty.nix
+    ../shareable/vesktop.nix
   ];
 }
