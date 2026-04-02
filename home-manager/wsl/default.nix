@@ -4,8 +4,8 @@
   home.packages = with pkgs; [
     ibmcloud-cli
     kubectl
-    nodePackages.pnpm
     nodejs
+    pnpm
     uv
     wget
     wsl-open
