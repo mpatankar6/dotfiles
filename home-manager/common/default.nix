@@ -21,6 +21,7 @@
     lldb
     python314
     tree
+    tree-sitter
   ];
 
   programs = {
