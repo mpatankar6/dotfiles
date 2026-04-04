@@ -18,6 +18,7 @@
     chafa
     clang
     gnumake
+    jq
     lldb
     python314
     tree

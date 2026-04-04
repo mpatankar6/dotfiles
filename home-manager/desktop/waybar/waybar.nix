@@ -3,6 +3,7 @@
 let
   cpuInfo = pkgs.writeShellScript "cpu" (builtins.readFile ./cpu.sh);
   gpuInfo = pkgs.writeShellScript "gpu" (builtins.readFile ./gpu.sh);
+  weather = pkgs.writeShellScript "weather" (builtins.readFile ./weather.sh);
 in
 {
   programs.waybar = {
@@ -14,6 +15,7 @@ in
           "custom/power"
           "hyprland/workspaces"
           "hyprland/language"
+          "custom/weather"
           "group/toggles"
         ];
         modules-center = [ "hyprland/window" ];
@@ -59,6 +61,13 @@ in
           format-en = "   US";
           format-en-intl = " INTL";
           on-click = "hyprctl switchxkblayout all next";
+        };
+        "custom/weather" = {
+          return-type = "json";
+          exec = "${weather}";
+          format = "{}";
+          interval = 60 * 30;
+          on-click = "true";
         };
         idle_inhibitor = {
           format = "";
