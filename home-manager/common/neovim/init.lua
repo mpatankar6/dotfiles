@@ -45,6 +45,7 @@ vim.lsp.enable({
   "bashls",
   "biome",
   "clangd",
+  "hls",
   "lua_ls",
   "marksman",
   "nixd",
