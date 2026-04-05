@@ -15,6 +15,7 @@
       extensions.force = true;
       extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
         firefox-color
+        sponsorblock
         ublock-origin
       ];
     };
