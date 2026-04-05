@@ -65,7 +65,6 @@ in
         "custom/weather" = {
           return-type = "json";
           exec = "${weather}";
-          format = "{}";
           interval = 60 * 30;
           on-click = "true";
         };
