@@ -20,6 +20,7 @@
     gnumake
     jq
     lldb
+    openssl
     python314
     tree
     tree-sitter
