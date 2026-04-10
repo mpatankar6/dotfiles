@@ -13,54 +13,65 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos";
-  networking.networkmanager.enable = true;
-
-  hardware.enableRedistributableFirmware = true;
-  hardware.nvidia = {
-    open = true;
-    powerManagement.enable = true;
+  networking = {
+    hostName = "nixos";
+    networkmanager.enable = true;
   };
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-    settings = {
-      General = {
-        Experimental = true;
-        FastConnectable = true;
+
+  hardware = {
+    enableRedistributableFirmware = true;
+    nvidia = {
+      open = true;
+      powerManagement.enable = true;
+    };
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+      settings = {
+        General = {
+          Experimental = true;
+          FastConnectable = true;
+        };
+        Policy.AutoEnable = true;
       };
-      Policy.AutoEnable = true;
     };
-  };
-  hardware.i2c = {
-    enable = true;
-    group = "wheel";
-  };
-
-  services.getty = {
-    autologinUser = "mihir";
-    autologinOnce = true;
-  };
-  services.openssh.enable = true;
-  services.blueman.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
-  services.keyd = {
-    enable = true;
-    keyboards.default = {
-      ids = [ "*" ];
-      settings.main.capslock = "leftcontrol";
+    i2c = {
+      enable = true;
+      group = "wheel";
     };
   };
 
-  programs.fish.enable = true;
-  programs.steam.enable = true;
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
+  services = {
+    keyd = {
+      enable = true;
+      keyboards.default = {
+        ids = [ "*" ];
+        settings.main.capslock = "leftcontrol";
+      };
+    };
+    pipewire = {
+      enable = true;
+      pulse.enable = true;
+    };
+    getty = {
+      autologinUser = "mihir";
+      autologinOnce = true;
+    };
+    xserver.videoDrivers = [ "nvidia" ];
+    blueman.enable = true;
+    openssh.enable = true;
+  };
+
+  programs = {
+    steam = {
+      enable = true;
+      protontricks.enable = true;
+    };
+    hyprland = {
+      enable = true;
+      withUWSM = true;
+    };
+    fish.enable = true;
   };
 
   users.users.mihir = {
