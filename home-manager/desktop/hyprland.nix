@@ -14,6 +14,7 @@
         kb_variant = ",intl";
       };
       general = {
+        border_size = 3;
         "col.active_border" = "rgba($mauveAlphaee) rgba($blueAlphaee) 45deg";
         "col.inactive_border" = "rgba($surface0Alphaaa)";
       };
@@ -21,7 +22,7 @@
         preserve_split = true;
       };
       decoration = {
-        rounding = 10;
+        rounding = 14;
         inactive_opacity = 0.9;
         blur.size = 4;
         shadow.color = "rgba($crustAlphaee)";
