@@ -132,7 +132,7 @@ in
         };
         network = {
           format-wifi = "󰖩";
-          format-ethernet = "";
+          format-ethernet = "";
           format-disconnected = "󱚵";
           format-disabled = "󰖪";
           tooltip-format-wifi = "{essid} ({signalStrength}%)\n{ipaddr}";
