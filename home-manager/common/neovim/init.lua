@@ -1,5 +1,6 @@
 vim.diagnostic.config({ virtual_text = true })
 vim.g.mapleader = " "
+vim.g.completion_enabled = true;
 
 vim.o.ignorecase = true
 vim.o.smartcase = true
@@ -21,7 +22,13 @@ require("blink.cmp").setup({
   signature = { enabled = true },
   completion = {
     documentation = { auto_show = true, auto_show_delay_ms = 500 },
-    ghost_text = { enabled = true },
+    menu = {
+      auto_show = function() return vim.g.completion_enabled end,
+    },
+    ghost_text = {
+      enabled = true,
+      show_without_menu = false,
+    },
   },
   keymap = { preset = "enter" }
 })
@@ -65,6 +72,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function() vim.highlight.on_yank() end,
 })
 
+vim.keymap.set("n", "<leader>tc", function()
+  vim.g.completion_enabled = not vim.g.completion_enabled
+  vim.notify("Auto completion: " .. (vim.g.completion_enabled and "on" or "off"))
+end, { desc = "Toggle auto completion" })
 vim.keymap.set("n", "<leader>F", vim.lsp.buf.format, { desc = "Format Buffer" })
 local fzf_lua = require("fzf-lua")
 fzf_lua.register_ui_select()
