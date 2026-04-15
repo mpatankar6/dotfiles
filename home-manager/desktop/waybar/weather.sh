@@ -7,11 +7,12 @@ on_error() {
 trap on_error ERR
 set -o pipefail
 
-for i in $(seq 5); do
-  ping -c1 -W2 1.1.1.1 &>/dev/null && break || sleep 2
+# On wake from sleep, network may not be up yet. Retry until curl succeeds.
+for _ in $(seq 5); do
+  location_data=$(curl -s --max-time 5 'https://ipinfo.io/json') && break
+  sleep 2
 done
 
-location_data=$(curl -s 'https://ipinfo.io/json')
 coords=$(echo "$location_data" \
   | jq -r '.loc | split(",") | "latitude=\(.[0])&longitude=\(.[1])"')
 
