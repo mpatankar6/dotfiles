@@ -124,7 +124,7 @@
     systemd.variables = [ "--all" ];
   };
   programs.fish.loginShellInit = lib.mkAfter ''
-    if uwsm check may-start
+    if uwsm check may-start >/dev/null
         exec uwsm start hyprland.desktop
     end
   '';
