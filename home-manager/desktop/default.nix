@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
   imports = [
@@ -20,7 +25,6 @@
     ./screenshot/screenshot.nix
     ./waybar/waybar.nix
   ];
-
   home.packages = with pkgs; [
     app2unit
     ddcutil
@@ -44,5 +48,25 @@
     mpv.enable = true;
     obs-studio.enable = true;
     zathura.enable = true;
+  };
+
+  # Make all GUI folder-open requests open Ghostty at the requested working
+  # directory, since we don't have (and don't want) a GUI file manager.
+  xdg = lib.mkIf config.programs.ghostty.enable {
+    desktopEntries.ghostty-folder-opener = {
+      name = "Ghostty Folder Opener";
+      exec = "${pkgs.writeShellScript "ghostty-folder-opener" ''
+        exec ghostty +new-window --working-directory="$1"
+      ''} %f";
+      terminal = false;
+      mimeType = [ "inode/directory" ];
+      settings = {
+        NoDisplay = "true";
+      };
+    };
+    mimeApps = {
+      enable = true;
+      defaultApplications."inode/directory" = [ "ghostty-folder-opener.desktop" ];
+    };
   };
 }
