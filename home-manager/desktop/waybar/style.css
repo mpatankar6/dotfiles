@@ -6,7 +6,6 @@
 
 #custom-power,
 #workspaces,
-#language,
 #custom-weather,
 #toggles,
 #window,
@@ -53,7 +52,6 @@
   background-image: none;
 }
 
-#language,
 #custom-weather {
   font-size: 12px;
   padding: 0 1em;

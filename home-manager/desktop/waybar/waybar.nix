@@ -14,7 +14,6 @@ in
         modules-left = [
           "custom/power"
           "hyprland/workspaces"
-          "hyprland/language"
           "custom/weather"
           "group/toggles"
         ];
@@ -56,11 +55,6 @@ in
         };
         "hyprland/workspaces" = {
           show-special = true;
-        };
-        "hyprland/language" = {
-          format-en = "   US";
-          format-en-intl = " INTL";
-          on-click = "hyprctl switchxkblayout all next";
         };
         "custom/weather" = {
           return-type = "json";
@@ -132,7 +126,7 @@ in
         };
         network = {
           format-wifi = "󰖩";
-          format-ethernet = "";
+          format-ethernet = "";
           format-disconnected = "󱚵";
           format-disabled = "󰖪";
           tooltip-format-wifi = "{essid} ({signalStrength}%)\n{ipaddr}";

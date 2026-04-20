@@ -9,10 +9,7 @@
       # registers it) uses Type=simple, so systemd considers it ready before
       # it's actually listening on D-Bus. That would cause a race condition.
       exec-once = [ "app2unit -- hyprlock" ];
-      input = {
-        kb_layout = "us,us";
-        kb_variant = ",intl";
-      };
+      input.kb_variant = "altgr-intl";
       general = {
         border_size = 3;
         "col.active_border" = "rgba($mauveAlphaee) rgba($blueAlphaee) 45deg";
@@ -84,7 +81,6 @@
         "$mod, P, workspace, -1"
         "$mod, V, exec, cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
         "$mod, TAB, workspace, previous"
-        "$mod SHIFT, SPACE, exec, hyprctl switchxkblayout all next"
         "$mod, SPACE, exec, app2unit -- fuzzel"
         "$mod, RETURN, exec, ghostty +new-window"
         "$mod, ESCAPE, exec, powermenu"
@@ -127,14 +123,5 @@
     if uwsm check may-start >/dev/null
         exec uwsm start hyprland.desktop
     end
-  '';
-  # Patch INTL layout because I don't have an ALT_R key.
-  # Prevents 'ć' but I don't use that.
-  home.file.".XCompose".text = ''
-    include "%L"
-    <dead_acute> <c> : "ç"
-    <dead_acute> <C> : "Ç"
-    <dead_acute> <exclam> : "¡"
-    <dead_acute> <question> : "¿"
   '';
 }
