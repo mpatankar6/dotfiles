@@ -12,6 +12,7 @@
     ./starship.nix
     ./tmux.nix
     ./zoxide.nix
+    ./stylix.nix
   ];
 
   home.packages = with pkgs; [
@@ -33,5 +34,4 @@
     gh.enable = true;
     ripgrep.enable = true;
   };
-  catppuccin.enable = true;
 }
