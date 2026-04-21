@@ -7,7 +7,7 @@
     settings = {
       window-padding-x = 10;
       window-padding-y = 10;
-      background-opacity = 0.8;
+      background-opacity = 0.9;
       background-blur = true;
       # MacOS renders fonts smaller.
       font-size = if pkgs.stdenv.isDarwin then 16 else 14;
