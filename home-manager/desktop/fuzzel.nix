@@ -20,4 +20,12 @@
     Terminal=true
     Type=Application
   '';
+
+  xdg.dataFile."applications/firefox-private.desktop".text = ''
+    [Desktop Entry]
+    Name=Firefox (Private)
+    Exec=firefox --private-window
+    Icon=firefox
+    Type=Application
+  '';
 }
