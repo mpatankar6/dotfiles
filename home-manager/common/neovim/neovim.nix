@@ -1,5 +1,24 @@
 { pkgs, ... }:
 
+let
+  _ =
+    assert
+      !(builtins.hasAttr "everforest-nvim" pkgs.vimPlugins)
+      || throw "everforest-nvim is now in nixpkgs. Remove the manual buildVimPlugin.";
+    null;
+  everforest-nvim = {
+    plugin = pkgs.vimUtils.buildVimPlugin {
+      name = "everforest-nvim";
+      src = pkgs.fetchFromGitHub {
+        owner = "neanias";
+        repo = "everforest-nvim";
+        rev = "main";
+        hash = "sha256-3ZCEozCPmMGYyLt6Oy4F1S6M8bfwNDzFnVjgAda7UCw=";
+      };
+    };
+    type = "lua";
+  };
+in
 {
   programs.neovim = {
     enable = true;
@@ -7,6 +26,7 @@
 
     plugins = with pkgs.vimPlugins; [
       blink-cmp
+      everforest-nvim
       fzf-lua
       gitsigns-nvim
       lualine-nvim
@@ -31,8 +51,5 @@
 
     initLua = builtins.readFile ./init.lua;
   };
-  catppuccin.nvim.settings = {
-    transparent_background = true;
-    show_end_of_buffer = true;
-  };
+  stylix.targets.neovim.enable = false;
 }

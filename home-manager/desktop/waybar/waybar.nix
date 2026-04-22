@@ -138,4 +138,7 @@ in
     ];
     style = builtins.readFile ./style.css;
   };
+  stylix.targets.waybar = {
+    addCss = false;
+  };
 }

@@ -15,7 +15,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
-    catppuccin.url = "github:catppuccin/nix";
+    stylix.url = "github:nix-community/stylix";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -25,7 +26,7 @@
       nixos-wsl,
       home-manager,
       nur,
-      catppuccin,
+      stylix,
       ...
     }:
     let
@@ -45,7 +46,7 @@
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
           home-manager.sharedModules = [
-            catppuccin.homeModules.catppuccin
+            stylix.homeModules.stylix
             ./home-manager/common
           ];
           home-manager.users.${username} = {

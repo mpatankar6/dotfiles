@@ -12,11 +12,9 @@
     ./cursor.nix
     ./firefox.nix
     ./fuzzel.nix
-    ./gtk.nix
     ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix
-    ./hyprpaper.nix
     ./hyprsunset.nix
     ./mako.nix
     ./mangohud.nix

@@ -18,12 +18,6 @@
 
       set -g status-position top
       set -g status-left ""
-      set -g status-right "#{E:@catppuccin_status_session}"
-      set -ag status-right "#{E:@catppuccin_status_user}"
-      set -ag status-right "#{E:@catppuccin_status_host}"
     '';
   };
-  catppuccin.tmux.extraConfig = ''
-    set -g @catppuccin_window_status_style "rounded"
-  '';
 }
