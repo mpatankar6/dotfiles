@@ -3,12 +3,6 @@
     enable = true;
     enableFishIntegration = true;
     settings = {
-      character = {
-        success_symbol = "[❯](green)";
-        error_symbol = "[❯](red)";
-        vimcmd_symbol = "[❮](subtext1)";
-      };
-
       # Somehow there is no better way to enable nerd fonts
       aws.symbol = " ";
       buf.symbol = " ";
@@ -20,10 +14,7 @@
       crystal.symbol = " ";
       dart.symbol = " ";
       deno.symbol = " ";
-      directory = {
-        style = "bold lavender";
-        read_only = " 󰌾";
-      };
+      directory.read_only = " 󰌾";
       docker_context.symbol = " ";
       elixir.symbol = " ";
       elm.symbol = " ";
@@ -31,10 +22,7 @@
       fortran.symbol = " ";
       fossil_branch.symbol = " ";
       gcloud.symbol = " ";
-      git_branch = {
-        style = "bold mauve";
-        symbol = " ";
-      };
+      git_branch.symbol = " ";
       git_commit.tag_symbol = "  ";
       golang.symbol = " ";
       gradle.symbol = " ";
