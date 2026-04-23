@@ -6,8 +6,6 @@
   stylix = {
     enable = true;
     overlays.enable = false;
-    # Even though we set our own colors, this gives hints to some applications
-    polarity = "dark";
     image = builtins.fetchurl {
       url = "https://wallpapercave.com/wp/wp6174511.png";
       sha256 = "0a9s2hhcjlqwp35y5svjqhws25gdkqqfyrvjc2wjaw8x8w4c51vm";
