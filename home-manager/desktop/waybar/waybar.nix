@@ -26,6 +26,7 @@ in
           orientation = "horizontal";
           modules = [
             "idle_inhibitor"
+            "wireplumber#microphone"
           ];
         };
         "group/system" = {
@@ -35,7 +36,7 @@ in
             "custom/gpu"
             "memory"
             "custom/brightness"
-            "pulseaudio"
+            "wireplumber"
             "clock"
           ];
           spacing = 10;
@@ -67,6 +68,14 @@ in
           tooltip = true;
           tooltip-format-activated = "Idle Inhibitor: On";
           tooltip-format-deactivated = "Idle Inhibitor: Off";
+        };
+        "wireplumber#microphone" = {
+          "format" = "󰍬";
+          "format-muted" = "󰍭";
+          "node-type" = "Audio/Source";
+          "on-click" = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+          "on-scroll-up" = "";
+          "on-scroll-down" = "";
         };
         "hyprland/window" = {
           max-length = 100;
@@ -102,12 +111,11 @@ in
           interval = "once";
           signal = 1;
         };
-        pulseaudio = {
+        wireplumber = {
           format = "󰕾 {volume:3}%";
           format-muted = "󰖁 Mute";
           on-click = "myxer";
-          on-scroll-up = "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+";
-          on-scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+          scroll-step = 5;
         };
         clock = {
           format = " {:%I:%M %p}";

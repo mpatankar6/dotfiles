@@ -54,13 +54,18 @@ window#waybar > box {
   font-size: 12px;
 }
 
-#toggles {
-  margin-left: 4px;
+#toggles .module {
+  margin-left: 1rem;
 }
 
 #idle_inhibitor.activated {
   color: @base08;
   box-shadow: inset 0 -2px @base08;
+}
+
+#wireplumber.microphone.muted {
+  color: @base09;
+  box-shadow: inset 0 -2px @base09;
 }
 
 #custom-cpu {
@@ -79,7 +84,7 @@ window#waybar > box {
   color: @base0C;
 }
 
-#pulseaudio {
+#wireplumber:not(.microphone) {
   color: @base0D;
 }
 
