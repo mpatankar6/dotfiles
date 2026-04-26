@@ -6,4 +6,5 @@
       toggle_hud = "Shift_L+F12";
     };
   };
+  stylix.targets.mangohud.enable = false;
 }
