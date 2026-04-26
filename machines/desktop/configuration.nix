@@ -42,13 +42,6 @@
   };
 
   services = {
-    keyd = {
-      enable = true;
-      keyboards.default = {
-        ids = [ "*" ];
-        settings.main.capslock = "leftcontrol";
-      };
-    };
     pipewire = {
       enable = true;
       pulse.enable = true;
