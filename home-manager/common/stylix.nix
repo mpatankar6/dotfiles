@@ -6,10 +6,7 @@
   stylix = {
     enable = true;
     overlays.enable = false;
-    image = builtins.fetchurl {
-      url = "https://wallpapercave.com/wp/wp6174511.png";
-      sha256 = "0a9s2hhcjlqwp35y5svjqhws25gdkqqfyrvjc2wjaw8x8w4c51vm";
-    };
+    image = ../../images/wallpaper.png;
     fonts = {
       sansSerif = {
         package = pkgs.ibm-plex;
