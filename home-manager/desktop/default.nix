@@ -22,6 +22,7 @@
     ./powermenu/powermenu.nix
     ./screenshot/screenshot.nix
     ./waybar/waybar.nix
+    ./zathura.nix
   ];
   home.packages = with pkgs; [
     app2unit
@@ -45,7 +46,6 @@
   programs = {
     mpv.enable = true;
     obs-studio.enable = true;
-    zathura.enable = true;
   };
 
   # Make all GUI folder-open requests open Ghostty at the requested working
