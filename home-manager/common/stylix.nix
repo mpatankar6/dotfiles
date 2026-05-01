@@ -6,7 +6,7 @@
   stylix = {
     enable = true;
     overlays.enable = false;
-    image = ../../images/wallpaper.png;
+    image = ../../images/wallpaper.jpg;
     fonts = {
       sansSerif = {
         package = pkgs.ibm-plex;
