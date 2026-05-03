@@ -1,11 +1,11 @@
 { pkgs, ... }:
 
 {
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
-
   stylix = {
     enable = true;
     overlays.enable = false;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
+    polarity = "dark";
     image = ../../images/wallpaper.jpg;
     fonts = {
       sansSerif = {
