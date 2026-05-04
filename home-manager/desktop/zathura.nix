@@ -4,7 +4,7 @@
   programs.zathura = {
     enable = true;
     options = {
-      font = "${config.stylix.fonts.sansSerif.name} 16";
+      font = "${config.stylix.fonts.sansSerif.name} 14";
       statusbar-v-padding = 20;
       statusbar-h-padding = 20;
       window-title-basename = true;
@@ -14,5 +14,6 @@
     mappings = {
       "<C-l>" = "abort";
     };
+    extraConfig = "unmap q";
   };
 }
