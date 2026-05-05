@@ -23,6 +23,7 @@
     ./screenshot/screenshot.nix
     ./waybar/waybar.nix
     ./zathura.nix
+    ./mpv.nix
   ];
   home.packages = with pkgs; [
     app2unit
@@ -39,12 +40,12 @@
     slurp
     wl-clipboard
     xdg-utils
+    youtube-tui
   ];
 
   services.cliphist.enable = true;
 
   programs = {
-    mpv.enable = true;
     obs-studio.enable = true;
   };
 
