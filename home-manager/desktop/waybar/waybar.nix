@@ -1,7 +1,13 @@
 { pkgs, ... }:
 
 let
-  cpuInfo = pkgs.writeShellScript "cpu" (builtins.readFile ./cpu.sh);
+  cpuInfo = pkgs.clangStdenv.mkDerivation {
+    name = "cpu";
+    src = ./cpu.c;
+    unpackPhase = "true";
+    buildPhase = "clang $src -o cpu";
+    installPhase = "install -Dm755 cpu $out";
+  };
   gpuInfo = pkgs.writeShellScript "gpu" (builtins.readFile ./gpu.sh);
   weather = pkgs.writeShellScript "weather" (builtins.readFile ./weather.sh);
 in
