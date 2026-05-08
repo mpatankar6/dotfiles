@@ -42,6 +42,7 @@ CpuStats readCpuStats() {
     fclose(proc_stat);
     exit(EXIT_FAILURE);
   }
+  fclose(proc_stat);
   return stats;
 }
 
@@ -94,6 +95,10 @@ double cpuTemperatureCelsius() {
   // The path to the file with temperature information *should* be stable, but
   // just in case, let's search for it.
   DIR *hwmon_directory = opendir("/sys/class/hwmon");
+  if (!hwmon_directory) {
+    perror("opendir hwmon");
+    exit(EXIT_FAILURE);
+  }
   struct dirent *entry = NULL;
   while ((entry = readdir(hwmon_directory))) {
     if (strncmp(entry->d_name, "hwmon", 5) != 0) {
@@ -112,6 +117,7 @@ double cpuTemperatureCelsius() {
     getline(&name, &len, name_file);
     fclose(name_file);
     if (strcmp(name, CPU_TEMP_DRIVER "\n") == 0) {
+      free(name);
       char *temperature_path;
       asprintf(&temperature_path, "/sys/class/hwmon/%s/temp1_input",
                entry->d_name);
@@ -125,6 +131,7 @@ double cpuTemperatureCelsius() {
       fclose(temp1_input);
       break;
     }
+    free(name);
   }
   closedir(hwmon_directory);
   return temperature_millidegrees / 1000.0;
