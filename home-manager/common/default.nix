@@ -17,7 +17,7 @@
 
   home.packages = with pkgs; [
     chafa
-    clang
+    clang_22
     gnumake
     jq
     lldb

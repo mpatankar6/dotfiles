@@ -40,7 +40,7 @@ in
     extraPackages = with pkgs; [
       bash-language-server
       biome
-      clang-tools
+      llvmPackages_22.clang-tools
       lua-language-server
       marksman
       nixd
