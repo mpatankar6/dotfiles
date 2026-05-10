@@ -8,7 +8,17 @@ let
     buildPhase = "clang $src -o cpu";
     installPhase = "install -Dm755 cpu $out";
   };
-  gpuInfo = pkgs.writeShellScript "gpu" (builtins.readFile ./gpu.sh);
+  gpuInfo = pkgs.clangStdenv.mkDerivation {
+    name = "gpu";
+    src = ./gpu.c;
+    unpackPhase = "true";
+    buildInputs = with pkgs; [
+      cudaPackages.cuda_nvml_dev
+      linuxPackages.nvidia_x11
+    ];
+    buildPhase = "clang $src -lnvidia-ml -o gpu";
+    installPhase = "install -Dm755 gpu $out";
+  };
   weather = pkgs.writeShellScript "weather" (builtins.readFile ./weather.sh);
 in
 {
