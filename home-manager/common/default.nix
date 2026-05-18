@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./btop.nix
     ./delta.nix
     ./direnv.nix
     ./fastfetch.nix
@@ -10,9 +11,9 @@
     ./git.nix
     ./neovim/neovim.nix
     ./starship.nix
+    ./stylix.nix
     ./tmux.nix
     ./zoxide.nix
-    ./stylix.nix
   ];
 
   home.packages = with pkgs; [
@@ -29,7 +30,6 @@
 
   programs = {
     bat.enable = true;
-    btop.enable = true;
     fd.enable = true;
     gh.enable = true;
     ripgrep.enable = true;
