@@ -10,14 +10,12 @@
       name = "default";
       isDefault = true;
       settings = {
-        "browser.newtabpage.activity-stream.showSearch" = false;
-        "browser.newtabpage.activity-stream.showWeather" = false;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       };
       userContent = ''
-        /* Hide the "Customize" button on a new tab. */
+        /* Hide all the junk on the newtab page. */
         @-moz-document url-prefix(about:newtab), url-prefix(about:home) {
-          .personalize-button {
+          .activity-stream > #root {
             display: none !important;
           }
         }
