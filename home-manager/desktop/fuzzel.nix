@@ -34,12 +34,4 @@
     Icon=firefox
     Type=Application
   '';
-
-  xdg.dataFile."applications/youtube-tui.desktop".text = ''
-    [Desktop Entry]
-    Name=YouTube TUI
-    Exec=youtube-tui
-    Terminal=true
-    Type=Application
-  '';
 }

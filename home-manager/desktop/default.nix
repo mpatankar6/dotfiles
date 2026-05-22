@@ -39,7 +39,6 @@
     slurp
     wl-clipboard
     xdg-utils
-    youtube-tui
   ];
 
   services.cliphist.enable = true;
