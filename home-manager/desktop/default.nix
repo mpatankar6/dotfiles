@@ -37,6 +37,7 @@
     playerctl
     prismlauncher
     slurp
+    via
     wl-clipboard
     xdg-utils
   ];

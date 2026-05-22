@@ -20,7 +20,6 @@
 
   hardware = {
     enableRedistributableFirmware = true;
-    keyboard.qmk.enable = true;
     nvidia = {
       open = true;
       powerManagement.enable = true;
