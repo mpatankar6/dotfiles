@@ -8,11 +8,13 @@
     ./fastfetch.nix
     ./fish.nix
     ./fzf.nix
+    ./ghostty.nix
     ./git.nix
     ./neovim/neovim.nix
     ./starship.nix
     ./stylix.nix
     ./tmux.nix
+    ./vesktop.nix
     ./zoxide.nix
   ];
 

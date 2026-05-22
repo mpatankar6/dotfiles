@@ -6,10 +6,6 @@
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-wsl = {
-      url = "github:nix-community/nixos-wsl";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,7 +19,6 @@
     {
       nixpkgs,
       nix-darwin,
-      nixos-wsl,
       home-manager,
       nur,
       stylix,
@@ -67,18 +62,6 @@
           (makeHomeManagerUser {
             homeDirectory = "/Users/mihir";
             modules = [ ./home-manager/macbook ];
-          })
-        ];
-      };
-      nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          overlayModule
-          ./machines/wsl/configuration.nix
-          nixos-wsl.nixosModules.wsl
-          home-manager.nixosModules.home-manager
-          (makeHomeManagerUser {
-            modules = [ ./home-manager/wsl ];
           })
         ];
       };
