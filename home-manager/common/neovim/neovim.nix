@@ -27,10 +27,12 @@ in
     plugins = with pkgs.vimPlugins; [
       blink-cmp
       everforest-nvim
+      fidget-nvim
       fzf-lua
       gitsigns-nvim
       lualine-nvim
       markdown-preview-nvim
+      mini-pairs
       nvim-lspconfig
       nvim-treesitter.withAllGrammars
       nvim-web-devicons

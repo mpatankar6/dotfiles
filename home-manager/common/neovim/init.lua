@@ -17,12 +17,13 @@ require("everforest").setup({
   transparent_background_level = 2,
 })
 vim.cmd([[colorscheme everforest]])
-
+require("fidget").setup()
 require("fzf-lua").setup()
 require("gitsigns").setup({
   current_line_blame_opts = { delay = 0 }
 })
 require("lualine").setup({})
+require('mini.pairs').setup()
 require("oil").setup()
 require("blink.cmp").setup({
   signature = { enabled = true },
