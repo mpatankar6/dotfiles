@@ -17,7 +17,6 @@ require("everforest").setup({
   transparent_background_level = 2,
 })
 vim.cmd([[colorscheme everforest]])
-require("fidget").setup()
 require("fzf-lua").setup()
 require("gitsigns").setup({
   current_line_blame_opts = { delay = 0 }
@@ -60,11 +59,13 @@ vim.lsp.enable({
   "biome",
   "clangd",
   "hls",
+  "jdtls",
   "lua_ls",
   "marksman",
   "nixd",
   "ruff",
   "rust_analyzer",
+  "tinymist",
   "ts_ls",
   "ty",
   "zls",
@@ -110,3 +111,4 @@ vim.keymap.set("n", "<leader>tb", gitsigns.toggle_current_line_blame, { desc = "
 vim.keymap.set({ "o", "x" }, "ih", gitsigns.select_hunk, { desc = "Select In Hunk Text Object" })
 local oil = require("oil")
 vim.keymap.set("n", "<leader>o", oil.open, { desc = "Open Oil" })
+vim.keymap.set("t", "<leader><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })

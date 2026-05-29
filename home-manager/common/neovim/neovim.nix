@@ -27,7 +27,6 @@ in
     plugins = with pkgs.vimPlugins; [
       blink-cmp
       everforest-nvim
-      fidget-nvim
       fzf-lua
       gitsigns-nvim
       lualine-nvim
@@ -37,6 +36,7 @@ in
       nvim-treesitter.withAllGrammars
       nvim-web-devicons
       oil-nvim
+      typst-preview-nvim
     ];
 
     extraPackages = with pkgs; [
@@ -47,6 +47,7 @@ in
       marksman
       nixd
       nixfmt
+      tinymist
       typescript-language-server
       zls
     ];
