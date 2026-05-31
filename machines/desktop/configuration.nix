@@ -16,6 +16,7 @@
   networking = {
     hostName = "nixos";
     networkmanager.enable = true;
+    firewall.allowedTCPPorts = [ 22 ];
   };
 
   hardware = {
