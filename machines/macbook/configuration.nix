@@ -10,6 +10,18 @@
     home = "/Users/mihir";
     shell = pkgs.fish;
   };
+  nix-homebrew = {
+    enable = true;
+    user = "mihir";
+  };
+  homebrew = {
+    enable = true;
+    masApps = {
+      "WireGuard" = 1451685025;
+      "Microsoft Word" = 462054704;
+      "Microsoft Excel" = 462058435;
+    };
+  };
   system = {
     primaryUser = "mihir";
     keyboard = {
