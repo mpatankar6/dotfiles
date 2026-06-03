@@ -16,6 +16,7 @@
         ""
         "!{pkgs.gh}/bin/gh auth git-credential"
       ];
+      init.defaultBranch = "main";
     };
   };
 }
