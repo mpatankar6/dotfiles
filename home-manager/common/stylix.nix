@@ -6,7 +6,7 @@
     overlays.enable = false;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
     polarity = "dark";
-    image = ../../images/wallpaper.jpg;
+    image = ../../images/wallpaper.png;
     fonts = {
       sansSerif = {
         package = pkgs.ibm-plex;
