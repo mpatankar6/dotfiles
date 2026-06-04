@@ -47,7 +47,9 @@ in
       marksman
       nixd
       nixfmt
+      ruff
       tinymist
+      ty
       typescript-language-server
       zls
     ];
