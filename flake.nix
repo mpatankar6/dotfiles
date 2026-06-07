@@ -11,9 +11,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    niri.url = "github:sodiboo/niri-flake";
     nur.url = "github:nix-community/NUR";
-    stylix.url = "github:nix-community/stylix";
-    stylix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -22,8 +25,9 @@
       nix-darwin,
       nix-homebrew,
       home-manager,
-      nur,
       stylix,
+      nur,
+      niri,
       ...
     }:
     let
@@ -74,6 +78,7 @@
           overlayModule
           ./machines/desktop/configuration.nix
           home-manager.nixosModules.home-manager
+          niri.nixosModules.niri
           (makeHomeManagerUser {
             modules = [ ./home-manager/desktop ];
           })
