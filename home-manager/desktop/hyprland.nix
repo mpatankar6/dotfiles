@@ -19,7 +19,7 @@
       decoration = {
         rounding = 14;
         inactive_opacity = 0.9;
-        blur.size = 4;
+        blur.size = 6;
       };
       animations = {
         bezier = [
@@ -112,6 +112,11 @@
       windowrule = [
         "suppress_event maximize, match:class .*"
         "float on, size 600 400, center on, match:class \\.blueman.*"
+      ];
+      layerrule = [
+        "blur on, match:namespace waybar"
+        # Stops transparent parts of the waybar region from being blurred.
+        "ignore_alpha 0.5, match:namespace waybar"
       ];
     };
     systemd.variables = [ "--all" ];

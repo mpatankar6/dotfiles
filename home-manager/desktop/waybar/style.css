@@ -10,7 +10,7 @@ window#waybar {
 }
  
 window#waybar > box {
-  background-color: @base00;
+  background-color: alpha(@base00, 0.8);
   border-radius: 14px;
   margin: 8px 12px 0 12px;
 }
