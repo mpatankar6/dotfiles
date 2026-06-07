@@ -130,7 +130,7 @@ in
         wireplumber = {
           format = "󰕾 {volume:3}%";
           format-muted = "󰖁 Mute";
-          on-click = "myxer";
+          on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
           scroll-step = 5;
         };
         clock = {

@@ -30,7 +30,6 @@
     hyprpicker
     libnotify
     man-pages
-    myxer
     nerd-fonts.jetbrains-mono
     playerctl
     prismlauncher
