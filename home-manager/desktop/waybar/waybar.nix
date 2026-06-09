@@ -72,6 +72,7 @@ in
         };
         "hyprland/workspaces" = {
           show-special = true;
+          cursor = true;
         };
         "custom/weather" = {
           return-type = "json";

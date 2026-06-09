@@ -43,8 +43,10 @@ window#waybar > box {
   box-shadow: inset 0 -2px @base0B;
 }
 
-#workspaces button:hover {
-  background-color: @base02;
+#workspaces button:hover,
+#wireplumber.microphone:hover,
+#idle_inhibitor:hover {
+  background-color: alpha(@base03, 0.25);
   text-shadow: none;
   transition: none;
   background-image: none;
