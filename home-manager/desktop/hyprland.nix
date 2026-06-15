@@ -19,7 +19,10 @@
       decoration = {
         rounding = 14;
         inactive_opacity = 0.9;
-        blur.size = 6;
+        blur = {
+          size = 8;
+          passes = 2;
+        };
       };
       animations = {
         bezier = [
@@ -115,8 +118,10 @@
       ];
       layerrule = [
         "blur on, match:namespace waybar"
-        # Stops transparent parts of the waybar region from being blurred.
+        "blur on, match:namespace launcher"
+        # Stops transparent parts of the layer from being blurred.
         "ignore_alpha 0.5, match:namespace waybar"
+        "ignore_alpha 0.5, match:namespace launcher"
       ];
     };
     systemd.variables = [ "--all" ];
