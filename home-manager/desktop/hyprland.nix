@@ -4,6 +4,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;
+    configType = "hyprlang";
     settings = {
       # We can't use `loginctl lock-session` here because hypridle (which
       # registers it) uses Type=simple, so systemd considers it ready before
