@@ -120,9 +120,11 @@
       layerrule = [
         "blur on, match:namespace waybar"
         "blur on, match:namespace launcher"
+        "blur on, match:namespace notifications"
         # Stops transparent parts of the layer from being blurred.
         "ignore_alpha 0.5, match:namespace waybar"
         "ignore_alpha 0.5, match:namespace launcher"
+        "ignore_alpha 0.5, match:namespace notifications"
       ];
     };
     systemd.variables = [ "--all" ];
