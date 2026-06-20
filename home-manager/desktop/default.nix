@@ -11,7 +11,7 @@
     ./firefox.nix
     ./fuzzel.nix
     ./hypridle.nix
-    ./hyprland.nix
+    ./hyprland/hyprland.nix
     ./hyprlock.nix
     ./hyprsunset.nix
     ./mako.nix
