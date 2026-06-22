@@ -31,7 +31,6 @@ in
       gitsigns-nvim
       lualine-nvim
       markdown-preview-nvim
-      mini-pairs
       nvim-lspconfig
       nvim-treesitter.withAllGrammars
       nvim-web-devicons

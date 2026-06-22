@@ -22,7 +22,6 @@ require("gitsigns").setup({
   current_line_blame_opts = { delay = 0 }
 })
 require("lualine").setup({})
-require('mini.pairs').setup()
 require("oil").setup()
 require("blink.cmp").setup({
   signature = { enabled = true },
