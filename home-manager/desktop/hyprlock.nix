@@ -27,7 +27,6 @@
       "input-field" = {
         size = "320, 60";
         outline_thickness = 2;
-        dot-size = 0.2;
         font_family = "$font";
         fade_on_empty = false;
         placeholder_text = "<span alpha='75%'>󰌾 Password for <i>$USER</i></span>";
