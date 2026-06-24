@@ -28,6 +28,7 @@
     python314
     tree
     tree-sitter
+    typst
   ];
 
   programs = {
