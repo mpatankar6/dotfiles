@@ -35,7 +35,6 @@ in
       nvim-treesitter.withAllGrammars
       nvim-web-devicons
       oil-nvim
-      typst-preview-nvim
     ];
 
     extraPackages = with pkgs; [
