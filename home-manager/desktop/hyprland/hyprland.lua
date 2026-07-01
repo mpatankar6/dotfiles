@@ -5,6 +5,7 @@ end)
 
 hl.config({
   general = {
+    layout = "master",
     border_size = 3,
     allow_tearing = false,
   },
@@ -67,8 +68,10 @@ hl.bind("SUPER + SHIFT + H", hl.dsp.window.move({ direction = "left" }))
 hl.bind("SUPER + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
 hl.bind("SUPER + SHIFT + K", hl.dsp.window.move({ direction = "up" }))
 hl.bind("SUPER + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
-hl.bind("SUPER + SEMICOLON", hl.dsp.layout("togglesplit"))
+hl.bind("SUPER + SEMICOLON", hl.dsp.layout("swapwithmaster"))
+hl.bind("SUPER + R", hl.dsp.layout("mfact exact " .. hl.get_config("master.mfact")))
 hl.bind("SUPER + N", hl.dsp.window.cycle_next())
+hl.bind("SUPER + P", hl.dsp.window.cycle_next({ direction = "prev" }))
 hl.bind("SUPER + F", hl.dsp.window.fullscreen())
 hl.bind("SUPER + SHIFT + F", hl.dsp.window.float())
 hl.bind("SUPER + Q", hl.dsp.window.close())
