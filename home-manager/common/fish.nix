@@ -2,8 +2,8 @@
   programs.fish = {
     enable = true;
     functions = {
-      github = {
-        description = "Open GitHub remote in browser";
+      remote = {
+        description = "Open Git remote in browser";
         body = "open (git remote get-url origin)";
       };
     };

@@ -25,6 +25,8 @@
   ];
   home.packages = with pkgs; [
     app2unit
+    sway
+    i3status
     ddcutil
     grim
     hyprpicker

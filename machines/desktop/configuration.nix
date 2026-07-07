@@ -21,7 +21,10 @@
   networking = {
     hostName = "nixos";
     networkmanager.enable = true;
-    firewall.allowedTCPPorts = [ 22 ];
+    firewall.allowedTCPPorts = [
+      22
+      80
+    ];
   };
 
   hardware = {
@@ -56,6 +59,14 @@
     getty = {
       autologinUser = "mihir";
       autologinOnce = true;
+    };
+    lighttpd = {
+      enable = true;
+      extraConfig = ''
+        server.modules += ( "mod_dirlisting", "mod_alias" )
+        alias.url = ( "/packages" => "/var/lib/machines/gentoo/var/cache/binpkgs/" )
+        dir-listing.activate = "enable"
+      '';
     };
     xserver.videoDrivers = [ "nvidia" ];
     blueman.enable = true;
