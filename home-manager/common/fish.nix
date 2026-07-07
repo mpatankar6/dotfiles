@@ -7,9 +7,6 @@
         body = "open (git remote get-url origin)";
       };
     };
-    shellAliases = {
-      cat = "bat --no-paging";
-    };
     interactiveShellInit = ''
       set -g fish_greeting
       set -gx MANPAGER "nvim +Man!"
