@@ -2,11 +2,6 @@
   description = "Cross-platform nix flake";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nix-darwin = {
-      url = "github:nix-darwin/nix-darwin/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,8 +16,6 @@
   outputs =
     {
       nixpkgs,
-      nix-darwin,
-      nix-homebrew,
       home-manager,
       stylix,
       nur,
@@ -57,24 +50,11 @@
         };
     in
     {
-      darwinConfigurations.macbook = nix-darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        modules = [
-          overlayModule
-          ./machines/macbook/configuration.nix
-          nix-homebrew.darwinModules.nix-homebrew
-          home-manager.darwinModules.home-manager
-          (makeHomeManagerUser {
-            homeDirectory = "/Users/mihir";
-            modules = [ ./home-manager/macbook ];
-          })
-        ];
-      };
       nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           overlayModule
-          ./machines/desktop/configuration.nix
+          ./configuration.nix
           home-manager.nixosModules.home-manager
           (makeHomeManagerUser {
             modules = [ ./home-manager/desktop ];

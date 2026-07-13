@@ -1,6 +1,5 @@
 # Dotfiles
-A Nix Flake providing cross-platform dotfiles and system configurations for my
-NixOS and macOS (nix-darwin) machines.
+A Nix Flake configuration for my NixOS desktop.
 
 ## Structure
 - `machines/`: System-level configurations for each host.
