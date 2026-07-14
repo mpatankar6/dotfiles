@@ -69,7 +69,6 @@
       '';
     };
     xserver.videoDrivers = [ "nvidia" ];
-    blueman.enable = true;
     openssh.enable = true;
   };
 

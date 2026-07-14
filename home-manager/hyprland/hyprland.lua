@@ -1,5 +1,5 @@
 hl.on("hyprland.start", function()
-  hl.exec_cmd("app2unit -- hyprlock")
+  hl.exec_cmd("loginctl lock-session")
 end)
 
 
@@ -88,25 +88,30 @@ hl.bind("SUPER + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
-hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("app2unit -- fuzzel"))
+hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
 hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("ghostty +new-window"))
-hl.bind("SUPER + ESCAPE", hl.dsp.exec_cmd("powermenu"))
-hl.bind("SUPER + ESCAPE", hl.dsp.exec_cmd("pidof hyprlock && systemctl suspend"), { locked = true })
-hl.bind("SUPER + V", hl.dsp.exec_cmd("cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"))
-hl.bind("SUPER + SHIFT + 3", hl.dsp.exec_cmd("screenshot full"))
-hl.bind("SUPER + SHIFT + 4", hl.dsp.exec_cmd("screenshot region"))
-hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("screenshot save"))
+hl.bind("SUPER + ESCAPE", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher '/session '"))
+hl.bind("SUPER + V", hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"))
+hl.bind("SUPER + SHIFT + 3", hl.dsp.exec_cmd("noctalia msg screenshot-fullscreen"))
+hl.bind("SUPER + SHIFT + 4", hl.dsp.exec_cmd("noctalia msg screenshot-region"))
+hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("noctalia msg screenshot-fullscreen pick"))
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
   { locked = true, repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
   { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("monitor-brightness +"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("monitor-brightness -"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("noctalia msg brightness-up"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("noctalia msg brightness-down"), { locked = true, repeating = true })
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+
+hl.workspace_rule({ workspace = "1", persistent = true })
+hl.workspace_rule({ workspace = "2", persistent = true })
+hl.workspace_rule({ workspace = "3", persistent = true })
+hl.workspace_rule({ workspace = "4", persistent = true })
+hl.workspace_rule({ workspace = "5", persistent = true })
 
 hl.window_rule({
   name           = "suppress-maximize-events",
@@ -120,10 +125,8 @@ hl.window_rule({
   float = true,
 })
 
-for _, namespace in ipairs({ "waybar", "launcher", "notifications" }) do
-  hl.layer_rule({
-    match = { namespace = namespace },
-    blur = true,
-    ignore_alpha = 0.5,
-  })
-end
+hl.layer_rule({
+  match = { namespace = "^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd)$" },
+  blur = true,
+  ignore_alpha = 0.5,
+})

@@ -4,7 +4,6 @@
   stylix = {
     enable = true;
     overlays.enable = false;
-    image = ../../images/wallpaper.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
     polarity = "dark";
     opacity.popups = 0.7;

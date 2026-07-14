@@ -1,5 +1,5 @@
 {
-  description = "Cross-platform nix flake";
+  description = "Desktop Nix Flake";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     home-manager = {
@@ -10,55 +10,44 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur.url = "github:nix-community/NUR";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-
   outputs =
     {
       nixpkgs,
       home-manager,
       stylix,
+      noctalia,
       nur,
       ...
     }:
-    let
-      overlayModule = {
-        nixpkgs.overlays = [
-          nur.overlays.default
-        ];
-      };
-      makeHomeManagerUser =
-        {
-          username ? "mihir",
-          homeDirectory ? "/home/mihir",
-          modules ? [ ],
-        }:
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.backupFileExtension = "backup";
-          home-manager.sharedModules = [
-            stylix.homeModules.stylix
-            ./home-manager/common
-          ];
-          home-manager.users.${username} = {
-            imports = modules;
-            home.username = username;
-            home.homeDirectory = homeDirectory;
-            home.stateVersion = "26.05";
-          };
-        };
-    in
     {
       nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          overlayModule
+          { nixpkgs.overlays = [ nur.overlays.default ]; }
           ./configuration.nix
           home-manager.nixosModules.home-manager
-          (makeHomeManagerUser {
-            modules = [ ./home-manager/desktop ];
-          })
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "backup";
+              sharedModules = [
+                stylix.homeModules.stylix
+                noctalia.homeModules.default
+                ./home-manager
+              ];
+              users."mihir".home.stateVersion = "26.05";
+            };
+          }
         ];
       };
     };

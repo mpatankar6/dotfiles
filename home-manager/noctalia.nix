@@ -1,0 +1,165 @@
+{
+  programs.noctalia = {
+    enable = true;
+    systemd.enable = true;
+    settings = {
+      shell = {
+        launch_apps_as_systemd_services = true;
+        font_family = "JetBrainsMono Nerd Font Propo";
+        time_format = "{:%-I:%M %p}";
+        launcher.categories = false;
+        panel = {
+          open_near_click_control_center = true;
+          open_near_click_session = true;
+          launcher_placement = "attached";
+        };
+        screenshot.copy_to_clipboard = true;
+      };
+
+      bar.main = {
+        margin_edge = 8;
+        margin_ends = 16;
+        radius = 16;
+        thickness = 34;
+        capsule = true;
+        background_opacity = 0.8;
+        start = [
+          "session"
+          "workspaces"
+          "tray"
+          "privacy"
+        ];
+        center = [ "active_window" ];
+        end = [
+          "brightness"
+          "volume"
+          "clock"
+          "bluetooth"
+          "network"
+          "notifications"
+        ];
+      };
+
+      widget.network = {
+        show_label = false;
+      };
+
+      widget.privacy = {
+        hide_inactive = true;
+      };
+
+      widget.active_window = {
+        max_length = 500;
+      };
+
+      widget.clock = {
+        format = "{:%-I:%M %p}";
+      };
+
+      keybinds = {
+        up = [
+          "up"
+          "ctrl+p"
+        ];
+        down = [
+          "down"
+          "ctrl+n"
+        ];
+      };
+
+      theme = {
+        mode = "dark";
+        source = "community";
+        community_palette = "Everforest";
+      };
+
+      wallpaper = {
+        default = {
+          path = ../images/wallpaper.png;
+        };
+      };
+
+      lockscreen = {
+        tint_intensity = 0.5;
+      };
+
+      lockscreen_widgets = {
+        enabled = true;
+        widget_order = [
+          "clock"
+          "date"
+          "lockscreen-login-box@DP-2"
+        ];
+
+        widget."lockscreen-login-box@DP-2" = {
+          type = "login_box";
+          output = "DP-2";
+          cx = 1280.0;
+          cy = 1320.0;
+          box_width = 300.0;
+          settings = {
+            background_opacity = 0.0;
+            show_password_hint = false;
+            show_login_button = false;
+            center_password_text = true;
+            input_radius = 28;
+          };
+        };
+
+        widget.clock = {
+          type = "clock";
+          cx = 1280.0;
+          cy = 90.0;
+          box_width = 384.0;
+          box_height = 144.0;
+          settings = {
+            format = "{:%-I:%M %p}";
+            color = "on_surface_variant";
+            shadow = false;
+            background = false;
+          };
+        };
+
+        widget.date = {
+          type = "clock";
+          cx = 1280.0;
+          cy = 190.0;
+          settings = {
+            format = "{:%A, %d %B %Y}";
+            color = "on_surface_variant";
+            shadow = false;
+            background = false;
+          };
+        };
+      };
+
+      # Services
+      brightness.enable_ddcutil = true;
+      idle = {
+        behavior.screen_off = {
+          timeout = 1200;
+          enabled = true;
+        };
+        behavior.suspend.timeout = 2400;
+      };
+      location.auto_locate = true;
+      nightlight = {
+        enabled = true;
+        temperature_night = 5500;
+      };
+      notification.background_opacity = 0.8;
+      system.monitor = {
+        enabled = true;
+        gpu_poll_seconds = 5.0;
+      };
+      weather.unit = "imperial";
+
+    };
+  };
+
+  systemd.user.services.noctalia = {
+    Service = {
+      Environment = "LD_LIBRARY_PATH=/run/opengl-driver/lib";
+    };
+  };
+}

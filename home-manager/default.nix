@@ -9,28 +9,20 @@
     ./fastfetch.nix
     ./firefox.nix
     ./fish.nix
-    ./fuzzel.nix
     ./fzf.nix
     ./ghostty.nix
     ./git.nix
-    ./hypridle.nix
     ./hyprland/hyprland.nix
-    ./hyprlock.nix
-    ./hyprsunset.nix
-    ./mako.nix
     ./mangohud.nix
-    ./monitor-brightness/monitor-brightness.nix
     ./mpv.nix
     ./neovim/neovim.nix
-    ./powermenu/powermenu.nix
-    ./screenshot/screenshot.nix
     ./starship.nix
     ./stylix.nix
     ./tmux.nix
     ./vesktop.nix
-    ./waybar/waybar.nix
     ./zathura.nix
     ./zoxide.nix
+    ./noctalia.nix
   ];
 
   home.packages = with pkgs; [
@@ -39,7 +31,6 @@
     clang_22
     ddcutil
     gnumake
-    grim
     hyprpicker
     jq
     libnotify
@@ -50,20 +41,25 @@
     playerctl
     prismlauncher
     python314
-    slurp
     tree
     tree-sitter
     typst
     via
-    wl-clipboard
     xdg-utils
   ];
 
-  services.cliphist.enable = true;
   programs = {
     fd.enable = true;
     gh.enable = true;
     obs-studio.enable = true;
     ripgrep.enable = true;
   };
+
+  xdg.dataFile."applications/firefox-private.desktop".text = ''
+    [Desktop Entry]
+    Name=Firefox (Private)
+    Exec=firefox --private-window
+    Icon=firefox
+    Type=Application
+  '';
 }
