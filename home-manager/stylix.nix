@@ -4,7 +4,7 @@
   stylix = {
     enable = true;
     overlays.enable = false;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
     polarity = "dark";
     opacity.popups = 0.7;
     fonts = {

@@ -19,24 +19,26 @@
       bar.main = {
         margin_edge = 8;
         margin_ends = 16;
+        widget_spacing = 24;
         radius = 16;
         thickness = 34;
-        capsule = true;
         background_opacity = 0.8;
         start = [
           "session"
           "workspaces"
+          "media"
           "tray"
           "privacy"
         ];
         center = [ "active_window" ];
         end = [
+          "cpu"
           "brightness"
           "volume"
-          "clock"
           "bluetooth"
           "network"
           "notifications"
+          "clock"
         ];
       };
 
@@ -49,7 +51,19 @@
       };
 
       widget.active_window = {
+        min_length = 0;
         max_length = 500;
+        display = "text_only";
+      };
+
+      widget.media = {
+        album_art_only = true;
+        hide_when_no_media = true;
+        art_size = 20;
+      };
+
+      widget.workspaces = {
+        scale = 1.2;
       };
 
       widget.clock = {
@@ -69,14 +83,23 @@
 
       theme = {
         mode = "dark";
-        source = "community";
-        community_palette = "Everforest";
+        source = "builtin";
+        builtin = "Nord";
       };
 
       wallpaper = {
+        directory = ../images/wallpapers;
         default = {
-          path = ../images/wallpaper.png;
+          path = ../images/wallpapers/tower.png;
         };
+      };
+
+      control_center = {
+        sidebar = "full";
+        width = 840;
+        hidden_tabs = [
+          "power"
+        ];
       };
 
       lockscreen = {
@@ -135,6 +158,7 @@
 
       # Services
       brightness.enable_ddcutil = true;
+      calendar.enabled = true;
       idle = {
         behavior.screen_off = {
           timeout = 1200;
@@ -157,6 +181,7 @@
     };
   };
 
+  # NixOS puts the nvml library in a non-standard location.
   systemd.user.services.noctalia = {
     Service = {
       Environment = "LD_LIBRARY_PATH=/run/opengl-driver/lib";

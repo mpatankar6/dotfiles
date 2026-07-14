@@ -12,11 +12,8 @@ vim.o.shiftwidth = 2
 vim.o.expandtab = true
 vim.o.signcolumn = "yes"
 
-require("everforest").setup({
-  background = "hard",
-  transparent_background_level = 2,
-})
-vim.cmd([[colorscheme everforest]])
+vim.g.nord_disable_background = true
+vim.cmd("colorscheme nord")
 require("fzf-lua").setup()
 require("gitsigns").setup({
   current_line_blame_opts = { delay = 0 }
