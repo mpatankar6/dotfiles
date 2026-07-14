@@ -16,13 +16,13 @@
     ./mangohud.nix
     ./mpv.nix
     ./neovim/neovim.nix
+    ./noctalia.nix
     ./starship.nix
     ./stylix.nix
     ./tmux.nix
     ./vesktop.nix
     ./zathura.nix
     ./zoxide.nix
-    ./noctalia.nix
   ];
 
   home.packages = with pkgs; [
@@ -30,6 +30,7 @@
     chafa
     clang_22
     ddcutil
+    file
     gnumake
     hyprpicker
     jq
@@ -37,6 +38,7 @@
     lldb
     man-pages
     nerd-fonts.jetbrains-mono
+    nh
     openssl
     playerctl
     prismlauncher

@@ -199,4 +199,6 @@
       Environment = "LD_LIBRARY_PATH=/run/opengl-driver/lib";
     };
   };
+
+  stylix.targets.noctalia.enable = false;
 }
