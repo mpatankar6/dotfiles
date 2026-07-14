@@ -100,6 +100,14 @@
         hidden_tabs = [
           "power"
         ];
+        shortcuts = [
+          { type = "wifi"; }
+          { type = "bluetooth"; }
+          { type = "noctalia/screen_recorder:toggle"; }
+          { type = "nightlight"; }
+          { type = "notification"; }
+          { type = "caffeine"; }
+        ];
       };
 
       lockscreen = {
@@ -177,6 +185,10 @@
         gpu_poll_seconds = 5.0;
       };
       weather.unit = "imperial";
+
+      plugins = {
+        enabled = [ "noctalia/screen_recorder" ];
+      };
 
     };
   };
