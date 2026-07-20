@@ -29,7 +29,7 @@
       ...
     }:
     {
-      nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           { nixpkgs.overlays = [ nur.overlays.default ]; }
