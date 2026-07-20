@@ -169,10 +169,14 @@
       calendar.enabled = true;
       idle = {
         behavior.screen_off = {
+          action = "screen_off";
           timeout = 1200;
           enabled = true;
         };
-        behavior.suspend.timeout = 2400;
+        behavior.suspend = {
+          action = "lock_and_suspend";
+          timeout = 2400;
+        };
       };
       location.auto_locate = true;
       nightlight = {
