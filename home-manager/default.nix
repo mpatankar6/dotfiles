@@ -39,7 +39,9 @@
     man-pages
     nerd-fonts.jetbrains-mono
     nh
+    nodejs_latest
     openssl
+    pi-coding-agent
     playerctl
     prismlauncher
     python314
@@ -53,7 +55,6 @@
   programs = {
     fd.enable = true;
     gh.enable = true;
-    obs-studio.enable = true;
     ripgrep.enable = true;
   };
 

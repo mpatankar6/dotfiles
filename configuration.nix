@@ -36,7 +36,6 @@
     };
     bluetooth = {
       enable = true;
-      powerOnBoot = true;
       settings = {
         General = {
           Experimental = true;
@@ -67,6 +66,20 @@
         alias.url = ( "/packages" => "/var/lib/machines/gentoo/var/cache/binpkgs/" )
         dir-listing.activate = "enable"
       '';
+    };
+    ollama = {
+      enable = true;
+      package = pkgs.ollama-cuda;
+      openFirewall = true;
+      host = "0.0.0.0";
+      loadModels = [
+        "gemma4:12b-it-qat"
+      ];
+      syncModels = true;
+      environmentVariables = {
+        OLLAMA_NO_CLOUD = "1";
+        OLLAMA_CONTEXT_LENGTH = "65536";
+      };
     };
     xserver.videoDrivers = [ "nvidia" ];
     openssh.enable = true;
