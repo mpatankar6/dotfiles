@@ -2,7 +2,7 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("loginctl lock-session")
 end)
 
-
+-- Config
 hl.config({
   general = {
     layout = "master",
@@ -32,9 +32,13 @@ hl.config({
   dwindle = {
     preserve_split = true,
   },
+  layout = {
+    single_window_aspect_ratio = { 1.22, 1 },
+    single_window_aspect_ratio_tolerance = 0.1,
+  },
 })
 
-
+-- Animations
 hl.curve("easeOutQuint", { type = "bezier", points = { { 0.23, 1 }, { 0.32, 1 } } })
 hl.curve("easeInOutCubic", { type = "bezier", points = { { 0.65, 0.05 }, { 0.36, 1 } } })
 hl.curve("linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
@@ -59,7 +63,7 @@ hl.animation({ leaf = "workspacesIn", enabled = true, speed = 1.21, bezier = "al
 hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" })
 hl.animation({ leaf = "zoomFactor", enabled = true, speed = 7, bezier = "quick" })
 
-
+-- Binds
 hl.bind("SUPER + H", hl.dsp.focus({ direction = "left" }))
 hl.bind("SUPER + L", hl.dsp.focus({ direction = "right" }))
 hl.bind("SUPER + K", hl.dsp.focus({ direction = "up" }))
@@ -112,12 +116,14 @@ hl.workspace_rule({ workspace = "3", persistent = true })
 hl.workspace_rule({ workspace = "4", persistent = true })
 hl.workspace_rule({ workspace = "5", persistent = true })
 
+-- Window rules
 hl.window_rule({
   name           = "suppress-maximize-events",
   match          = { class = ".*" },
   suppress_event = "maximize",
 })
 
+-- Layer rules
 hl.layer_rule({
   match = { namespace = "^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd)$" },
   blur = true,
