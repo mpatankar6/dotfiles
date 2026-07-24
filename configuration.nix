@@ -55,10 +55,6 @@
       enable = true;
       pulse.enable = true;
     };
-    getty = {
-      autologinUser = "mihir";
-      autologinOnce = true;
-    };
     lighttpd = {
       enable = true;
       extraConfig = ''
@@ -95,6 +91,10 @@
       withUWSM = true;
     };
     fish.enable = true;
+    noctalia-greeter = {
+      enable = true;
+      greeter-args = ''--session "Hyprland (uwsm-managed)"'';
+    };
   };
 
   users.users.mihir = {

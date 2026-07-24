@@ -14,6 +14,10 @@
           launcher_placement = "attached";
         };
         screenshot.copy_to_clipboard = true;
+        greeter_sync = {
+          auto_sync = true;
+          privilege_command = "sudo";
+        };
       };
 
       bar.main = {

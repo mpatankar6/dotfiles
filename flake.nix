@@ -14,6 +14,10 @@
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    noctalia-greeter = {
+      url = "github:noctalia-dev/noctalia-greeter";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,6 +29,7 @@
       home-manager,
       stylix,
       noctalia,
+      noctalia-greeter,
       nur,
       ...
     }:
@@ -34,6 +39,7 @@
         modules = [
           { nixpkgs.overlays = [ nur.overlays.default ]; }
           ./configuration.nix
+          noctalia-greeter.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager = {

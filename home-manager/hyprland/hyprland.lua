@@ -1,7 +1,3 @@
-hl.on("hyprland.start", function()
-  hl.exec_cmd("loginctl lock-session")
-end)
-
 -- Config
 hl.config({
   general = {
