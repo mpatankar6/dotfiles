@@ -14,6 +14,7 @@
     kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       systemd-boot.enable = true;
+      systemd-boot.configurationLimit = 5;
       efi.canTouchEfiVariables = true;
     };
   };
@@ -82,10 +83,6 @@
   };
 
   programs = {
-    steam = {
-      enable = true;
-      protontricks.enable = true;
-    };
     hyprland = {
       enable = true;
       withUWSM = true;
