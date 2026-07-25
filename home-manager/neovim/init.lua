@@ -15,6 +15,17 @@ vim.o.signcolumn = "yes"
 vim.g.nord_disable_background = true
 vim.cmd("colorscheme nord")
 require("fzf-lua").setup()
+require("fzf-lua").register_ui_select(function(fzf_opts)
+  if fzf_opts.kind == "codeaction" then
+    return {
+      winopts = {
+        height = 32,
+        preview = { layout = "vertical", vertical = "down:50%" },
+      },
+    }
+  end
+  return {}
+end)
 require("gitsigns").setup({
   current_line_blame_opts = { delay = 0 }
 })
@@ -82,9 +93,8 @@ vim.keymap.set("n", "<leader>tc", function()
 end, { desc = "Toggle auto completion" })
 vim.keymap.set("n", "<leader>F", vim.lsp.buf.format, { desc = "Format Buffer" })
 local fzf_lua = require("fzf-lua")
-fzf_lua.register_ui_select()
-vim.keymap.set("n", "<leader>g", fzf_lua.grep_curbuf, { desc = "Grep Current Buffer" })
-vim.keymap.set("n", "<leader>G", fzf_lua.live_grep, { desc = "Live Grep" })
+vim.keymap.set("n", "<leader>g", fzf_lua.live_grep, { desc = "Live Grep" })
+vim.keymap.set("n", "<leader>G", fzf_lua.grep_curbuf, { desc = "Grep Current Buffer" })
 vim.keymap.set("n", "<leader>ff", fzf_lua.files, { desc = "Find Files" })
 vim.keymap.set("n", "<leader>fr", fzf_lua.resume, { desc = "Resume Find" })
 vim.keymap.set("n", "<leader>fR", fzf_lua.registers, { desc = "Find Registers" })
