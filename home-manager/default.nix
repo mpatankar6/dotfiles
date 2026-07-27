@@ -13,7 +13,6 @@
     ./ghostty.nix
     ./git.nix
     ./hyprland/hyprland.nix
-    ./mangohud.nix
     ./mpv.nix
     ./neovim/neovim.nix
     ./noctalia.nix
@@ -29,13 +28,16 @@
     app2unit
     chafa
     clang_22
+    claude-code
     ddcutil
     file
     gnumake
     hyprpicker
     jq
+    killall
     libnotify
     lldb
+    lsof
     man-pages
     nerd-fonts.jetbrains-mono
     nh
@@ -43,12 +45,13 @@
     openssl
     pi-coding-agent
     playerctl
-    prismlauncher
     python314
     tree
     tree-sitter
     typst
+    unzip
     via
+    wl-clipboard
     xdg-utils
   ];
 
