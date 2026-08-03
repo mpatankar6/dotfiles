@@ -133,9 +133,10 @@
           cy = 1320.0;
           box_width = 300.0;
           settings = {
+            layout = "compact";
             background_opacity = 0.0;
-            show_password_hint = false;
             show_login_button = false;
+            show_unlock_hint = false;
             center_password_text = true;
             input_radius = 28;
           };
