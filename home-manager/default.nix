@@ -32,6 +32,7 @@
     ddcutil
     file
     gnumake
+    gpu-screen-recorder
     hyprpicker
     jq
     killall
@@ -50,6 +51,7 @@
     tree-sitter
     typst
     unzip
+    valgrind-light
     via
     wl-clipboard
     xdg-utils
