@@ -32,6 +32,9 @@ hl.config({
     single_window_aspect_ratio = { 1.22, 1 },
     single_window_aspect_ratio_tolerance = 0.1,
   },
+  xwayland = {
+    enabled = false
+  },
 })
 
 -- Animations
