@@ -6,7 +6,6 @@ hl.config({
     allow_tearing = false,
   },
   decoration = {
-    rounding = 14,
     inactive_opacity = 0.9,
     blur = { size = 8, passes = 2 },
   },
@@ -27,10 +26,6 @@ hl.config({
   },
   dwindle = {
     preserve_split = true,
-  },
-  layout = {
-    single_window_aspect_ratio = { 1.22, 1 },
-    single_window_aspect_ratio_tolerance = 0.1,
   },
   xwayland = {
     enabled = false

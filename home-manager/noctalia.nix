@@ -21,12 +21,12 @@
       };
 
       bar.main = {
-        margin_edge = 8;
-        margin_ends = 16;
+        margin_ends = 0;
         widget_spacing = 24;
-        radius = 16;
-        thickness = 34;
+        radius = 0;
+        thickness = 32;
         background_opacity = 0.8;
+        shadow = false;
         start = [
           "session"
           "workspaces"
@@ -57,7 +57,7 @@
       widget.active_window = {
         min_length = 0;
         max_length = 500;
-        display = "text_only";
+        display = "icon_and_text";
       };
 
       widget.media = {
