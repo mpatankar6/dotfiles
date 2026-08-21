@@ -9,8 +9,8 @@
     ./fastfetch.nix
     ./firefox.nix
     ./fish.nix
+    ./foot.nix
     ./fzf.nix
-    ./ghostty.nix
     ./git.nix
     ./hyprland/hyprland.nix
     ./mpv.nix

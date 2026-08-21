@@ -87,7 +87,7 @@ hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
-hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("ghostty +new-window"))
+hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("footclient"))
 hl.bind("SUPER + ESCAPE", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher '/session '"))
 hl.bind("SUPER + V", hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"))
 hl.bind("SUPER + SHIFT + 3", hl.dsp.exec_cmd("noctalia msg screenshot-fullscreen"))

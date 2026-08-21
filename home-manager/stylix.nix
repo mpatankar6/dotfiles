@@ -6,6 +6,7 @@
     overlays.enable = false;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
     polarity = "dark";
+    opacity.terminal = 0.9;
     fonts = {
       sansSerif = {
         package = pkgs.ibm-plex;
@@ -25,7 +26,7 @@
       };
       sizes = {
         applications = 10;
-        terminal = 12;
+        terminal = 14;
         desktop = 10;
         popups = 12;
       };
