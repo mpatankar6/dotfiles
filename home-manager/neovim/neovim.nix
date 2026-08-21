@@ -35,5 +35,4 @@
 
     initLua = builtins.readFile ./init.lua;
   };
-  stylix.targets.neovim.enable = false;
 }

@@ -7,6 +7,18 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
     polarity = "dark";
     opacity.terminal = 0.9;
+    targets = {
+      fish.enable = false;
+      neovim.enable = false;
+      noctalia.enable = false;
+      firefox = {
+        colorTheme.enable = true;
+        profileNames = [ "default" ];
+        fonts.override = {
+          sizes.applications = 12;
+        };
+      };
+    };
     fonts = {
       sansSerif = {
         package = pkgs.ibm-plex;

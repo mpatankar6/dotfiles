@@ -28,12 +28,4 @@
       ];
     };
   };
-  stylix.targets.firefox = {
-    colorTheme.enable = true;
-    profileNames = [ "default" ];
-    fonts.override = {
-      sizes.applications = 12;
-    };
-  };
-
 }
