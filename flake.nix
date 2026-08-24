@@ -1,17 +1,13 @@
 {
   description = "Desktop Nix Flake";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
       url = "github:nix-community/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    noctalia = {
-      url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia-greeter = {
@@ -28,7 +24,6 @@
       nixpkgs,
       home-manager,
       stylix,
-      noctalia,
       noctalia-greeter,
       nur,
       ...
@@ -48,7 +43,6 @@
               backupFileExtension = "backup";
               sharedModules = [
                 stylix.homeModules.stylix
-                noctalia.homeModules.default
                 ./home-manager
               ];
               users."mihir".home.stateVersion = "26.05";
