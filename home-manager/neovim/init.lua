@@ -12,7 +12,11 @@ vim.o.shiftwidth = 2
 vim.o.expandtab = true
 vim.o.signcolumn = "yes"
 
-vim.cmd("colorscheme nord")
+require("kanagawa").setup({
+  transparent = true,
+  colors = { theme = { all = { ui = { bg_gutter = "none" } } } },
+})
+vim.cmd("colorscheme kanagawa")
 require("gitsigns").setup({ current_line_blame_opts = { delay = 0 } })
 require("lualine").setup({})
 require("oil").setup()

@@ -10,9 +10,9 @@
       dropbar-nvim
       fzf-lua
       gitsigns-nvim
+      kanagawa-nvim
       lualine-nvim
       markdown-preview-nvim
-      nord-nvim
       nvim-lspconfig
       nvim-treesitter.withAllGrammars
       nvim-web-devicons
