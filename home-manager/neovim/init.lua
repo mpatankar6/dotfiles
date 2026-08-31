@@ -12,23 +12,8 @@ vim.o.shiftwidth = 2
 vim.o.expandtab = true
 vim.o.signcolumn = "yes"
 
-vim.g.nord_disable_background = true
 vim.cmd("colorscheme nord")
-require("fzf-lua").setup()
-require("fzf-lua").register_ui_select(function(fzf_opts)
-  if fzf_opts.kind == "codeaction" then
-    return {
-      winopts = {
-        height = 32,
-        preview = { layout = "vertical", vertical = "down:50%" },
-      },
-    }
-  end
-  return {}
-end)
-require("gitsigns").setup({
-  current_line_blame_opts = { delay = 0 }
-})
+require("gitsigns").setup({ current_line_blame_opts = { delay = 0 } })
 require("lualine").setup({})
 require("oil").setup()
 require("blink.cmp").setup({
@@ -115,6 +100,9 @@ vim.keymap.set("n", "<leader>rh", ":Gitsigns reset_hunk<CR>", { desc = "Reset Hu
 vim.keymap.set("n", "<leader>ph", gitsigns.preview_hunk, { desc = "Preview Hunk" })
 vim.keymap.set("n", "<leader>tb", gitsigns.toggle_current_line_blame, { desc = "Toggle Current Line Blame" })
 vim.keymap.set({ "o", "x" }, "ih", gitsigns.select_hunk, { desc = "Select In Hunk Text Object" })
+local dropbar_api = require("dropbar.api")
+vim.keymap.set("n", "<leader>;", dropbar_api.pick, { desc = "Pick symbols in winbar" })
+vim.ui.select = require('dropbar.utils.menu').select
 local oil = require("oil")
 vim.keymap.set("n", "<leader>o", oil.open, { desc = "Open Oil" })
 vim.keymap.set("t", "<leader><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
