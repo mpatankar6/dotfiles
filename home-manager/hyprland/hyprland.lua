@@ -2,7 +2,7 @@
 hl.config({
   general = {
     layout = "master",
-    border_size = 3,
+    border_size = 2,
     allow_tearing = false,
   },
   decoration = {
