@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   imports = [
@@ -32,6 +32,7 @@
     enableRedistributableFirmware = true;
     keyboard.qmk.enable = true;
     nvidia = {
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
       open = true;
       powerManagement.enable = true;
     };

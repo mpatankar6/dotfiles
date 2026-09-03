@@ -11,6 +11,7 @@
       fish.enable = false;
       neovim.enable = false;
       noctalia.enable = false;
+      emacs.enable = false;
       firefox = {
         colorTheme.enable = true;
         profileNames = [ "default" ];

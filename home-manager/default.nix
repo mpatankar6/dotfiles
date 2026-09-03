@@ -6,6 +6,7 @@
     ./cursor.nix
     ./delta.nix
     ./direnv.nix
+    ./emacs/emacs.nix
     ./fastfetch.nix
     ./firefox.nix
     ./fish.nix
@@ -33,6 +34,7 @@
     file
     gnumake
     gpu-screen-recorder
+    hunspellDicts.en_US
     hyprpicker
     jq
     killall
@@ -43,6 +45,7 @@
     nerd-fonts.jetbrains-mono
     nh
     nodejs_latest
+    obs-studio
     openssl
     pi-coding-agent
     playerctl
@@ -53,6 +56,7 @@
     unzip
     valgrind-light
     via
+    vscodium
     wl-clipboard
     xdg-utils
   ];
