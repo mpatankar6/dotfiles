@@ -95,6 +95,11 @@
     };
   };
 
+  documentation.man = {
+    man-db.enable = false;
+    mandoc.enable = true;
+  };
+
   users.users.mihir = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
