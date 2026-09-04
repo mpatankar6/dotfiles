@@ -13,13 +13,42 @@
 (require 'evil-nerd-commenter-operator)
 (evil-define-key '(normal visual) 'global (kbd "gc") #'evilnc-comment-operator)
 
-(defun highlight-yank (beg end &rest _)
+(defun my/highlight-yank (beg end &rest _)
   (pulse-momentary-highlight-region beg end))
-(advice-add 'evil-yank :before #'highlight-yank)
+(advice-add 'evil-yank :before #'my/highlight-yank)
 
 (evil-set-leader 'normal (kbd "SPC"))
 (evil-define-key 'normal 'global
   (kbd "<leader>s") #'jinx-correct)
+
+;; Org mode
+(setopt org-directory "~/Documents/org")
+(setopt org-agenda-files (list org-directory))
+(setopt org-caldav-url "http://xandikos.home.arpa/user/calendars"
+	org-caldav-calendar-id "calendar"
+	org-caldav-inbox (expand-file-name "calendar.org" org-directory)
+	org-caldav-files nil) ; I am choosing to only read for simplicity
+
+(defun my/org-caldav-sync ()
+  (let ((org-caldav-show-sync-results nil)
+	(warning-suppress-log-types (cons '(files) warning-suppress-log-types)))
+    (org-caldav-sync))
+  (when (org-caldav-sync-result-filter-errors)
+    (org-caldav-display-sync-results)))
+
+(defun my/org-sync ()
+  "Pull, commit, and push the org repo to my remote."
+  (interactive)
+  (my/org-caldav-sync)
+  (let ((default-directory (expand-file-name org-directory))
+	(shell-file-name "/bin/sh"))
+    (shell-command (concat "echo calendar.org > .gitignore && "
+			   "git add -A && "
+			   "(git diff --cached --quiet || git commit -m sync) && "
+			   "git pull --no-edit; git push -u origin main"))))
+
+(keymap-global-set "C-c s" #'my/org-sync)
+(keymap-global-set "C-c a" #'org-agenda)
 
 ;; Appearance
 (menu-bar-mode -1)
