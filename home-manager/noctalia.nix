@@ -6,6 +6,7 @@
       shell = {
         launch_apps_as_systemd_services = true;
         font_family = "JetBrainsMono Nerd Font Propo";
+        corner_radius_scale = 0;
         time_format = "{:%-I:%M %p}";
         launcher.categories = false;
         panel = {
@@ -22,9 +23,9 @@
 
       bar.main = {
         margin_ends = 0;
-        widget_spacing = 24;
+        widget_spacing = 20;
         radius = 0;
-        thickness = 32;
+        thickness = 36;
         background_opacity = 0.8;
         shadow = false;
         start = [
@@ -37,6 +38,7 @@
         center = [ "active_window" ];
         end = [
           "cpu"
+          "ram"
           "brightness"
           "volume"
           "bluetooth"
@@ -44,6 +46,15 @@
           "notifications"
           "clock"
         ];
+      };
+
+      widget.cpu = {
+        show_glyph = false;
+        visualization = "graph";
+      };
+
+      widget.ram = {
+        show_glyph = false;
       };
 
       widget.network = {
@@ -57,7 +68,9 @@
       widget.active_window = {
         min_length = 0;
         max_length = 500;
+        icon_size = 18;
         display = "icon_and_text";
+        actions.left = "window-switcher";
       };
 
       widget.media = {
@@ -67,7 +80,8 @@
       };
 
       widget.workspaces = {
-        scale = 1.2;
+        scale = 1.1;
+        style = "minimal";
       };
 
       widget.clock = {
@@ -88,13 +102,13 @@
       theme = {
         mode = "dark";
         source = "builtin";
-        builtin = "Nord";
+        builtin = "Kanagawa";
       };
 
       wallpaper = {
         directory = ../images/wallpapers;
         default = {
-          path = ../images/wallpapers/tower.png;
+          path = ../images/wallpapers/koi.png;
         };
       };
 
