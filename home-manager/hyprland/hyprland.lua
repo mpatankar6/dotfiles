@@ -90,8 +90,8 @@ hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
 hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("footclient"))
 hl.bind("SUPER + ESCAPE", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher '/session '"))
 hl.bind("SUPER + V", hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"))
-hl.bind("SUPER + SHIFT + 3", hl.dsp.exec_cmd("noctalia msg screenshot-fullscreen"))
-hl.bind("SUPER + SHIFT + 4", hl.dsp.exec_cmd("noctalia msg screenshot-region"))
+hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("noctalia msg screenshot-region"))
+hl.bind("SUPER + SHIFT + CTRL + S", hl.dsp.exec_cmd("noctalia msg screenshot-fullscreen"))
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
   { locked = true, repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
