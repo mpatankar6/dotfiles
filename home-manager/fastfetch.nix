@@ -27,7 +27,7 @@ in
         }
         {
           type = "kernel";
-          key = if pkgs.stdenv.isDarwin then "│ 󰀵" else "│ ";
+          key = "";
         }
         {
           type = "wm";
