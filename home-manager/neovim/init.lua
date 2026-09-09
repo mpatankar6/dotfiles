@@ -1,6 +1,5 @@
 vim.diagnostic.config({ virtual_text = true })
 vim.g.mapleader = " "
-vim.g.completion_enabled = true;
 
 vim.o.ignorecase = true
 vim.o.smartcase = true
@@ -49,6 +48,16 @@ vim.lsp.config("rust_analyzer", {
     }
   }
 })
+vim.lsp.config('tinymist', {
+  settings = {
+    formatterProseWrap = true,
+    formatterPrintWidth = 80,
+  },
+})
+vim.api.nvim_create_user_command("TypstPreview", function()
+  vim.lsp.buf_request(0, "workspace/executeCommand",
+    { command = "tinymist.startDefaultPreview" })
+end, {})
 
 vim.lsp.enable({
   "bashls",
@@ -109,4 +118,3 @@ vim.keymap.set("n", "<leader>;", dropbar_api.pick, { desc = "Pick symbols in win
 vim.ui.select = require('dropbar.utils.menu').select
 local oil = require("oil")
 vim.keymap.set("n", "<leader>o", oil.open, { desc = "Open Oil" })
-vim.keymap.set("t", "<leader><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
