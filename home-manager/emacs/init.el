@@ -4,14 +4,6 @@
 (global-jinx-mode 1)
 (add-to-list 'jinx-exclude-faces '(prog-mode font-lock-string-face))
 
-;; PDF-tools
-(pdf-tools-install)
-(setopt pdf-view-display-size 'fit-page)
-(add-hook 'pdf-view-mode-hook #'pdf-view-roll-minor-mode)
-(setopt mouse-wheel-progressive-speed nil)
-(setopt mouse-wheel-scroll-amount (cons 3 (cdr mouse-wheel-scroll-amount)))
-(add-hook 'pdf-view-mode-hook (lambda () (setq-local evil-default-cursor '(nil))))
-
 ;; Evil mode
 (setopt evil-want-keybinding nil)
 (setopt evil-want-C-u-scroll t)
@@ -28,16 +20,10 @@
 (evil-set-leader 'normal (kbd "SPC"))
 (evil-define-key 'normal 'global
   (kbd "<leader>s") #'jinx-correct)
-(evil-define-key 'normal 'pdf-view-mode-map
-  (kbd "C-r") #'pdf-view-themed-minor-mode)
-(evil-define-key 'normal 'pdf-view-roll-minor-mode-map
-  (kbd "C-f") #'pdf-roll-scroll-screen-forward
-  (kbd "C-b") #'pdf-roll-scroll-screen-backward
-  (kbd "C-d") (lambda () (interactive) (pdf-roll-scroll-forward  (/ (window-text-height nil t) 2) nil t))
-  (kbd "C-u") (lambda () (interactive) (pdf-roll-scroll-backward (/ (window-text-height nil t) 2) nil t)))
 
 ;; Org mode
 (require 'org-attach)
+(add-to-list 'org-file-apps '("\\.pdf\\'" . "xdg-open %s"))
 (setopt org-agenda-timegrid-use-ampm t)
 (setopt org-tags-column 0)
 (setopt org-directory "~/Documents/org")

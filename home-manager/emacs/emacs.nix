@@ -12,7 +12,6 @@
       epkgs.jinx
       epkgs.kanagawa-themes
       epkgs.org-caldav
-      epkgs.pdf-tools
     ];
   };
   services.emacs = {
