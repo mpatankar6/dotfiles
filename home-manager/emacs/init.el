@@ -4,6 +4,14 @@
 (global-jinx-mode 1)
 (add-to-list 'jinx-exclude-faces '(prog-mode font-lock-string-face))
 
+;; PDF-tools
+(pdf-tools-install)
+(setopt pdf-view-display-size 'fit-page)
+(add-hook 'pdf-view-mode-hook #'pdf-view-roll-minor-mode)
+(setopt mouse-wheel-progressive-speed nil)
+(setopt mouse-wheel-scroll-amount (cons 3 (cdr mouse-wheel-scroll-amount)))
+(add-hook 'pdf-view-mode-hook (lambda () (setq-local evil-default-cursor '(nil))))
+
 ;; Evil mode
 (setopt evil-want-keybinding nil)
 (setopt evil-want-C-u-scroll t)
@@ -20,8 +28,18 @@
 (evil-set-leader 'normal (kbd "SPC"))
 (evil-define-key 'normal 'global
   (kbd "<leader>s") #'jinx-correct)
+(evil-define-key 'normal 'pdf-view-mode-map
+  (kbd "C-r") #'pdf-view-themed-minor-mode)
+(evil-define-key 'normal 'pdf-view-roll-minor-mode-map
+  (kbd "C-f") #'pdf-roll-scroll-screen-forward
+  (kbd "C-b") #'pdf-roll-scroll-screen-backward
+  (kbd "C-d") (lambda () (interactive) (pdf-roll-scroll-forward  (/ (window-text-height nil t) 2) nil t))
+  (kbd "C-u") (lambda () (interactive) (pdf-roll-scroll-backward (/ (window-text-height nil t) 2) nil t)))
 
 ;; Org mode
+(require 'org-attach)
+(setopt org-agenda-timegrid-use-ampm t)
+(setopt org-tags-column 0)
 (setopt org-directory "~/Documents/org")
 (setopt org-agenda-files (list org-directory))
 (setopt org-caldav-url "http://xandikos.home.arpa/user/calendars"
@@ -49,13 +67,17 @@
 
 (keymap-global-set "C-c s" #'my/org-sync)
 (keymap-global-set "C-c a" #'org-agenda)
+(keymap-global-set "C-c l" #'org-toggle-link-display)
 
 ;; Appearance
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+(blink-cursor-mode -1)
+(tooltip-mode -1)
 
 (load-theme 'kanagawa-wave t)
+(set-face-foreground 'vertical-border (face-foreground 'line-number))
 
 (fido-vertical-mode 1)
 (setopt max-mini-window-height 11)
@@ -73,8 +95,12 @@
 (global-auto-revert-mode 1)
 (which-key-mode 1)
 (setopt sentence-end-double-space nil) ; Irrelevant for evil mode I think
+(setopt create-lockfiles nil)
 (setopt make-backup-files nil)
 (setopt auto-save-default nil)
 (setopt custom-file (make-temp-file "emacs-custom"))
+
+(recentf-mode 1)
+(keymap-global-set "C-x C-r" #'recentf-open)
 
 (keymap-global-set "C-S-v" #'yank)
