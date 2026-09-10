@@ -27,7 +27,7 @@ in
         }
         {
           type = "kernel";
-          key = "";
+          key = "│ ";
         }
         {
           type = "wm";
