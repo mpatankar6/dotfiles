@@ -57,6 +57,10 @@
       enable = true;
       pulse.enable = true;
     };
+    displayManager.noctalia-greeter = {
+      enable = true;
+      greeter-args = ''--session "Hyprland (uwsm-managed)"'';
+    };
     lighttpd = {
       enable = true;
       extraConfig = ''
@@ -89,10 +93,6 @@
       withUWSM = true;
     };
     fish.enable = true;
-    noctalia-greeter = {
-      enable = true;
-      greeter-args = ''--session "Hyprland (uwsm-managed)"'';
-    };
   };
 
   documentation.man = {
