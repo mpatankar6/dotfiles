@@ -26,6 +26,25 @@
       22
       80
     ];
+    wg-quick.interfaces.wg0 = {
+      address = [ "10.67.67.3" ];
+      dns = [
+        "192.168.1.1"
+        "fios-router.home"
+      ];
+      privateKeyFile = "/etc/wireguard/wg0.key";
+      peers = [
+        {
+          publicKey = "k1E2PiNqcdJjTywSL8emZwXxmi9OObsm7yENYfMV7S0=";
+          endpoint = "vpn.mihirpatankar.com:51820";
+          allowedIPs = [
+            "192.168.1.0/24"
+            "10.67.67.1"
+          ];
+          persistentKeepalive = 25;
+        }
+      ];
+    };
   };
 
   hardware = {

@@ -59,6 +59,7 @@
 
       widget.network = {
         show_label = false;
+        vpn_status = "hidden";
       };
 
       widget.privacy = {
