@@ -27,9 +27,6 @@ hl.config({
   dwindle = {
     preserve_split = true,
   },
-  xwayland = {
-    enabled = false
-  },
 })
 
 -- Animations
@@ -75,23 +72,23 @@ hl.bind("SUPER + SHIFT + F", hl.dsp.window.float())
 hl.bind("SUPER + Q", hl.dsp.window.close())
 hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("S"))
 hl.bind("SUPER + CTRL + S", hl.dsp.window.move({ workspace = "special:S" }))
-hl.bind("SUPER + TAB", hl.dsp.focus({ workspace = "previous" }))
+hl.bind("ALT + TAB", hl.dsp.focus({ workspace = "previous" }))
 for i = 1, 9 do
   hl.bind("SUPER + " .. i, hl.dsp.focus({ workspace = i }))
   hl.bind("SUPER + CTRL + " .. i, hl.dsp.window.move({ workspace = i }))
 end
 
-hl.bind("SUPER + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind("SUPER + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
-hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
+hl.bind("ALT + mouse_right", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind("ALT + mouse_left", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind("ALT + mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind("ALT + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
 hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("footclient"))
-hl.bind("SUPER + ESCAPE", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher '/session '"))
+hl.bind("ALT + ESCAPE", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher '/session '"))
 hl.bind("SUPER + V", hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"))
-hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("noctalia msg screenshot-region"))
-hl.bind("SUPER + SHIFT + CTRL + S", hl.dsp.exec_cmd("noctalia msg screenshot-fullscreen"))
+hl.bind("ALT + SHIFT + S", hl.dsp.exec_cmd("noctalia msg screenshot-region"))
+hl.bind("ALT + SHIFT + CTRL + S", hl.dsp.exec_cmd("noctalia msg screenshot-fullscreen"))
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
   { locked = true, repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
