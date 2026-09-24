@@ -111,6 +111,7 @@
       enable = true;
       withUWSM = true;
     };
+    steam.enable = true;
     fish.enable = true;
   };
 

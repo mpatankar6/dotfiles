@@ -26,7 +26,6 @@
   ];
 
   home.packages = with pkgs; [
-    app2unit
     chafa
     clang_22
     claude-code
@@ -36,12 +35,14 @@
     gpu-screen-recorder
     hunspellDicts.en_US
     hyprpicker
+    imv
     jq
     killall
     libnotify
     lldb
     lsof
     man-pages
+    microfetch
     nerd-fonts.jetbrains-mono
     nh
     nodejs_latest
@@ -49,6 +50,7 @@
     openssl
     pi-coding-agent
     playerctl
+    prismlauncher
     python314
     tree
     tree-sitter
@@ -66,6 +68,15 @@
     gh.enable = true;
     ripgrep.enable = true;
   };
+
+  xdg.dataFile."applications/terminal-here.desktop".text = ''
+    [Desktop Entry]
+    Name=Open in Terminal
+    Exec=footclient --working-directory %f
+    Type=Application
+    NoDisplay=true
+    MimeType=inode/directory;
+  '';
 
   xdg.dataFile."applications/firefox-private.desktop".text = ''
     [Desktop Entry]
